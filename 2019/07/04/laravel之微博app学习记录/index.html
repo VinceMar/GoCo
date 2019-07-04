@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="GoCo - Blog">
 <meta property="og:description" content="教程地址-L01 Laravel 教程 - Web 开发实战入门 ( Laravel 5.8 )  当用户在查看一个网页时，一个完整的访问过程如下： 打开浏览器在地址栏输入 URL 并访问； 路由将 URL 请求映射到指定控制器上； 控制器收到请求，开始进行处理。如果视图需要动态数据进行渲染，则控制器会开始从模型中读取数据； 数据读取完毕，将数据传送给视图进行渲染； 视图渲染完成，在浏览器上呈现出">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-04T16:25:03.964Z">
+<meta property="og:updated_time" content="2019-07-04T16:51:19.960Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="laravel之微博app学习记录">
 <meta name="twitter:description" content="教程地址-L01 Laravel 教程 - Web 开发实战入门 ( Laravel 5.8 )  当用户在查看一个网页时，一个完整的访问过程如下： 打开浏览器在地址栏输入 URL 并访问； 路由将 URL 请求映射到指定控制器上； 控制器收到请求，开始进行处理。如果视图需要动态数据进行渲染，则控制器会开始从模型中读取数据； 数据读取完毕，将数据传送给视图进行渲染； 视图渲染完成，在浏览器上呈现出">
@@ -406,7 +406,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-05 00:25:03" itemprop="dateModified" datetime="2019-07-05T00:25:03+08:00">2019-07-05</time>
+                <time title="修改时间：2019-07-05 00:51:19" itemprop="dateModified" datetime="2019-07-05T00:51:19+08:00">2019-07-05</time>
               </span>
             
           
@@ -465,7 +465,7 @@
 <li>控制器收到请求，开始进行处理。如果视图需要动态数据进行渲染，则控制器会开始从模型中读取数据；</li>
 <li>数据读取完毕，将数据传送给视图进行渲染；</li>
 <li>视图渲染完成，在浏览器上呈现出完整页面；<a id="more"></a>
-<h2 id="laravel路由"><a href="#laravel路由" class="headerlink" title="laravel路由"></a>laravel路由</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'/'</span>, <span class="string">'StaticPagesController@home'</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="laravel路由"><a href="#laravel路由" class="headerlink" title="laravel路由"></a>laravel路由</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'/'</span>, <span class="string">'StaticPagesController@home'</span>);</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -477,9 +477,13 @@
 <li>DELETE 常用于数据删除  </li>
 </ul>
 <p>指向 web 路由文件中定义的 POST、PUT 或 DELETE 路由的任何 HTML 表单都应该包含一个 CSRF 令牌字段，否则，这个请求将会被拒绝。  </p>
-<h3 id="重定向-视图路由"><a href="#重定向-视图路由" class="headerlink" title="重定向|视图路由"></a>重定向|视图路由</h3><p>Route::redirect 方法，可以通过第三个参数自定义返回码<br>Route::view 方法，第二个参数数组中的数据会被传递给视图</p>
+<h2 id="重定向-视图路由"><a href="#重定向-视图路由" class="headerlink" title="重定向|视图路由"></a>重定向|视图路由</h2><p>Route::redirect 方法，可以通过第三个参数自定义返回码<br>Route::view 方法，第二个参数数组中的数据会被传递给视图</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::redirect(<span class="string">'/here'</span>, <span class="string">'/there'</span>, <span class="number">301</span>);</span><br><span class="line">----------</span><br><span class="line">Route::view(<span class="string">'/welcome'</span>, [<span class="string">'name'</span> =&gt; <span class="string">'Taylor'</span>]);</span><br></pre></td></tr></table></figure>
 
+<h2 id="路由参数"><a href="#路由参数" class="headerlink" title="路由参数"></a>路由参数</h2><p>路由的参数放在 <code>{ }</code> 中，参数名只能为字母且不能有 <code>-</code> 符号<br>路由参数会按顺序依次被注入到路由回调或者控制器中，而不受回调或者控制器的参数名称的影响。<br>参数后加 <code>?</code> 意为可选参数（需给出默认值）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//路由参数</span></span><br><span class="line">Route::get(<span class="string">'posts/&#123;post&#125;/comments/&#123;comment&#125;'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($postId, $commentId)</span> </span>&#123;</span><br><span class="line">    ···</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//可选参数</span></span><br><span class="line">Route::get(<span class="string">'user/&#123;name?&#125;'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($name = null)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $name;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="laravel控制器"><a href="#laravel控制器" class="headerlink" title="laravel控制器"></a>laravel控制器</h1><p>替代路由中由闭包所实现的逻辑处理<br>单行为控制器需要声明一个<code>__invoke</code>方法，此时路由中无需指明控制器的对应方法</p>
 
       
     </div>
@@ -498,7 +502,7 @@
     
       <div>
         <div id="reward-container">
-  <div>感谢你请我和无糖可乐！</div>
+  <div>感谢你请我喝无糖可乐！</div>
   <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -737,7 +741,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#当用户在查看一个网页时，一个完整的访问过程如下："><span class="nav-number">1.</span> <span class="nav-text">当用户在查看一个网页时，一个完整的访问过程如下：</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#laravel路由"><span class="nav-number"></span> <span class="nav-text">laravel路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向-视图路由"><span class="nav-number">1.</span> <span class="nav-text">重定向|视图路由</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#当用户在查看一个网页时，一个完整的访问过程如下："><span class="nav-number">1.</span> <span class="nav-text">当用户在查看一个网页时，一个完整的访问过程如下：</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#laravel路由"><span class="nav-number"></span> <span class="nav-text">laravel路由</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#重定向-视图路由"><span class="nav-number"></span> <span class="nav-text">重定向|视图路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由参数"><span class="nav-number"></span> <span class="nav-text">路由参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#laravel控制器"><span class="nav-number"></span> <span class="nav-text">laravel控制器</span></a></li></div>
             
 
           </div>

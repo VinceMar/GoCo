@@ -95,9 +95,9 @@
 
 
   <meta name="description" content="最近在准备一个软件大赛，题目选定的是为书籍等出版物提供AR技术的可视化。目前暂定的是以Web为载体，Github上刚好有对应开发Web端AR的开源库——AR.js，但由于教程较少，因写下此文记录一下学习与采坑的过程，希望可以帮到有需要的各位。">
-<meta name="keywords" content="AR.js">
+<meta name="keywords" content="AR">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初探AR技术之AR.js">
+<meta property="og:title" content="初探AR技术之WebAR">
 <meta property="og:url" content="http://yoursite.com/2019/07/15/初探AR技术之AR-js/index.html">
 <meta property="og:site_name" content="GoCo - Blog">
 <meta property="og:description" content="最近在准备一个软件大赛，题目选定的是为书籍等出版物提供AR技术的可视化。目前暂定的是以Web为载体，Github上刚好有对应开发Web端AR的开源库——AR.js，但由于教程较少，因写下此文记录一下学习与采坑的过程，希望可以帮到有需要的各位。">
@@ -106,10 +106,11 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716004126.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716004210.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716004315.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190717233335.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716010255.png">
-<meta property="og:updated_time" content="2019-07-15T17:10:25.331Z">
+<meta property="og:updated_time" content="2019-07-17T16:08:11.802Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初探AR技术之AR.js">
+<meta name="twitter:title" content="初探AR技术之WebAR">
 <meta name="twitter:description" content="最近在准备一个软件大赛，题目选定的是为书籍等出版物提供AR技术的可视化。目前暂定的是以Web为载体，Github上刚好有对应开发Web端AR的开源库——AR.js，但由于教程较少，因写下此文记录一下学习与采坑的过程，希望可以帮到有需要的各位。">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716004025.png">
 
@@ -129,7 +130,7 @@
   };
 </script>
 
-  <title>初探AR技术之AR.js | GoCo - Blog</title>
+  <title>初探AR技术之WebAR | GoCo - Blog</title>
   
 
 
@@ -371,7 +372,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">初探AR技术之AR.js
+          <h1 class="post-title" itemprop="name headline">初探AR技术之WebAR
 
               
             
@@ -412,7 +413,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-16 01:10:25" itemprop="dateModified" datetime="2019-07-16T01:10:25+08:00">2019-07-16</time>
+                <time title="修改时间：2019-07-18 00:08:11" itemprop="dateModified" datetime="2019-07-18T00:08:11+08:00">2019-07-18</time>
               </span>
             
           
@@ -487,12 +488,23 @@
 <li>实景翻译<br><img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716004210.png" alt></li>
 <li>时光机器<br><img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716004315.png" alt>  </li>
 </ol>
-<h1 id="Web端开发AR——AR-js"><a href="#Web端开发AR——AR-js" class="headerlink" title="Web端开发AR——AR.js"></a>Web端开发AR——AR.js</h1><p>针对此次研究的对象：出版物，我们应选择基于识别的方式来开发AR应用，下面我们首先来对此方式进行延伸与拓展。 （基于位置和SLAM技术暂不展开说明，详情请见：<a href="https://www.jianshu.com/p/3aac1ec6ea2f）" target="_blank" rel="noopener">https://www.jianshu.com/p/3aac1ec6ea2f）</a><br>基于识别的方式学名叫做Vision based AR，即基于计算机视觉的AR，该方式是利用计算机视觉方法建立现实世界与屏幕之间的映射关系，使我们想要绘制的图形或是 3D 模型可以如同依附在现实物体上一般展现在屏幕上，如何做到这一点呢？本质上来讲就是要找到现实场景中的一个依附平面，然后再将这个 3 维场景下的平面映射到我们 2 维屏幕上，然后再在这个平面上绘制你想要展现的图形，从技术实现手段上可以分为 2 类：</p>
+<h1 id="Web端开发AR"><a href="#Web端开发AR" class="headerlink" title="Web端开发AR"></a>Web端开发AR</h1><p><img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190717233335.png" alt><br>针对此次研究的对象：出版物，我们应选择基于识别的方式来开发AR应用，下面我们首先来对此方式进行延伸与拓展。 （基于位置和SLAM技术暂不展开说明，详情请见：<a href="https://www.jianshu.com/p/3aac1ec6ea2f）" target="_blank" rel="noopener">https://www.jianshu.com/p/3aac1ec6ea2f）</a><br>基于识别的方式学名叫做Vision based AR，即基于计算机视觉的AR，该方式是利用计算机视觉方法建立现实世界与屏幕之间的映射关系，使我们想要绘制的图形或是 3D 模型可以如同依附在现实物体上一般展现在屏幕上，如何做到这一点呢？本质上来讲就是要找到现实场景中的一个依附平面，然后再将这个 3 维场景下的平面映射到我们 2 维屏幕上，然后再在这个平面上绘制你想要展现的图形，从技术实现手段上可以分为 2 类：</p>
 <ul>
 <li>Marker-Based AR<br>这种实现方法需要一个事先制作好的 Marker(例如: 绘制着一定规格形状的模板卡片或者二维码），然后把 Marker 放到现实中的一个位置上，相当于确定了一个现实场景中的平面，然后通过摄像头对 Marker 进行识别和姿态评估（Pose Estimation），并确定其位置，然后将该 Marker 中心为原点的坐标系称为 Marker Coordinates 即模板坐标系，我们要做的事情实际上是要得到一个变换从而使模板坐标系和屏幕坐标系建立映射关系，这样我们根据这个变换在屏幕上画出的图形就可以达到该图形依附在 Marker 上的效果，理解其原理需要一点 3D 射影几何的知识，从模板坐标系变换到真实的屏幕坐标系需要先旋转平移到摄像机坐标系（Camera Coordinates）然后再从摄像机坐标系映射到屏幕坐标系（其实由于硬件误差这中间还需要理想屏幕坐标系到实际屏幕坐标系的转换，这里不深究），见下图。  <img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716010255.png" alt></li>
 <li>Marker-Less AR<br>基本原理与 Marker based AR 相同，不过它可以用任何具有足够特征点的物体 (例如：书的封面) 作为平面基准，而不需要事先制作特殊的模板，摆脱了模板对 AR 应用的束缚。它的原理是通过一系列算法 (如：SURF，ORB，FERN 等) 对模板物体提取特征点，并记录或者学习这些特征点。当摄像头扫描周围场景，会提取周围场景的特征点并与记录的模板物体的特征点进行比对，如果扫描到的特征点和模板特征点匹配数量超过阈值，则认为扫描到该模板，然后根据对应的特征点坐标估计 Tm 矩阵，之后再根据 Tm 进行图形绘制(方法与 Marker-Based AR 类似)。</li>
 </ul>
-<p>本文参考：<a href="https://www.jianshu.com/p/3aac1ec6ea2f" target="_blank" rel="noopener">https://www.jianshu.com/p/3aac1ec6ea2f</a><br><a href="https://zhuanlan.zhihu.com/p/48281104" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/48281104</a><br><a href="https://blog.csdn.net/u010922186/article/details/41554171" target="_blank" rel="noopener">https://blog.csdn.net/u010922186/article/details/41554171</a></p>
+<p>下面来介绍我搜集的WebAR解决方案</p>
+<ol>
+<li>AR.js<br>AR.js是由Jerome Etienne开发维护的一款WebAR库，代码托管在<a href="https://github.com/jeromeetienne/AR.js" target="_blank" rel="noopener">GitHub</a>。其实，AR.js就是将WebAR所需的各种组件与库经过整理、维护，拼凑成了一把锋利精美的瑞士军刀，可以流畅地以高帧率运行在各种设备上。其中，AR.js主要封装了以下几个库：<ul>
+<li>JSARToolKit：老牌开源AR库ARToolKit的JavaScript版本,主要提供了识别和追踪 marker 的功能。</li>
+<li>Three.js:Three.js是一款开源的主流3D绘图JS引擎，我们知道WebGL是一种网页3D绘图标准，和jQuery简化了HTML DOM操作一样，Three.js可以简化WebGL编程。</li>
+<li>aframe-ar.js:A-Frame 团队发布的 其中包括了一些 Web AR 组件，用 A-Frame 的各种组件可以让你用很少的代码构建出 AR 所需要的 3D 立体世界。A-Frame.js是一个用来构建虚拟现实（VR）应用的网页开发框架（部分API也可以开发AR应用），是当下用来开发WebVR内容主流技术方案。A-Frame基于HTML，容易上手。但是A-Frame不仅仅是一个3D场景渲染引擎或者一个标记语言。其核心思想是基于Three.js来提供一个声明式、可扩展以及组件化的编程结构。<br>在AR.js中，分为两种写法：使用Three.js结合JS库以及使用A-Frame.js，若选择使用Three.js结合JS库的方式，需要学习了解很多JS库的用法，代码量比较大，学习成本较高；而使用A-Frame.js，则可以大量减少代码量，比如著名的<a href="https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fdbf" target="_blank" rel="noopener">10行代码实现AR</a>。</li>
+</ul>
+</li>
+<li>EasyAR<br> EasyAR是国内首款免费全平台AR引擎，提供了EasyAR SDK以及WebAR等解决方案，可以快速构建AR应用。</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>目前，在web端，无论采用哪种实现手段，最主要是运行环境对webRTC、webGL 两个特性的支持程度。而且，Web端目前只有基于标记图Marker的应用有着比较良好的体验，无标记图的方式据我所知AR.js开发团队目前已有进展，但国内外对webAR 的讨论和demo 案例目前都比较少，能够搜到的资料几乎都是英文版。成熟的产品更少，阴阳师的AR抽取SSR卡牌的也是基于maker图来实现，且抖动明显，追踪能力也比较差。王者荣耀刚刚更新在英雄界面能够显示AR效果目前也只在特定的OPPO联合开发机型中实现，况且这两款产品是更强大的APP端。</p>
+<h1 id="本文参考："><a href="#本文参考：" class="headerlink" title="本文参考："></a>本文参考：</h1><p><a href="https://www.jianshu.com/p/3aac1ec6ea2f" target="_blank" rel="noopener">https://www.jianshu.com/p/3aac1ec6ea2f</a><br><a href="https://zhuanlan.zhihu.com/p/48281104" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/48281104</a><br><a href="https://blog.csdn.net/u010922186/article/details/41554171" target="_blank" rel="noopener">https://blog.csdn.net/u010922186/article/details/41554171</a><br><a href="http://skyroxas.tw/web-ar-%E5%85%A5%E9%96%80%EF%BC%9A-ar-js-tracking-js-three-js-a-frame-js/" target="_blank" rel="noopener">http://skyroxas.tw/web-ar-%E5%85%A5%E9%96%80%EF%BC%9A-ar-js-tracking-js-three-js-a-frame-js/</a></p>
 
       
     </div>
@@ -552,7 +564,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/AR-js/" rel="tag"># AR.js</a>
+            <a href="/tags/AR/" rel="tag"># AR</a>
           
         </div>
       
@@ -762,7 +774,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AR概述"><span class="nav-number">1.</span> <span class="nav-text">AR概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念定义："><span class="nav-number">1.1.</span> <span class="nav-text">概念定义：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方法："><span class="nav-number">1.2.</span> <span class="nav-text">实现方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考实例："><span class="nav-number">1.3.</span> <span class="nav-text">参考实例：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web端开发AR——AR-js"><span class="nav-number">2.</span> <span class="nav-text">Web端开发AR——AR.js</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AR概述"><span class="nav-number">1.</span> <span class="nav-text">AR概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念定义："><span class="nav-number">1.1.</span> <span class="nav-text">概念定义：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方法："><span class="nav-number">1.2.</span> <span class="nav-text">实现方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考实例："><span class="nav-number">1.3.</span> <span class="nav-text">参考实例：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web端开发AR"><span class="nav-number">2.</span> <span class="nav-text">Web端开发AR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#本文参考："><span class="nav-number">4.</span> <span class="nav-text">本文参考：</span></a></li></ol></div>
             
 
           </div>

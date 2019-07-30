@@ -1,14 +1,16 @@
 ---
-title: laravel之微博app学习记录
+title: laravel学习记录
 date: 2019-07-04 17:37:12
 tags: 
 - laravel
 categories: 
 - Web开发
 ---
-[教程地址-L01 Laravel 教程 - Web 开发实战入门 ( Laravel 5.8 ) ](https://learnku.com/courses/laravel-essential-training/5.8)
-
-### 当用户在查看一个网页时，一个完整的访问过程如下：
+# 前言
+&emsp;&emsp;本帖用于记录学习laravel时遇到的各种问题，不定期更新
+<!-- more -->
+# 网页访问过程
+当用户在查看一个网页时，一个完整的访问过程如下：
 
 1. 打开浏览器在地址栏输入 URL 并访问；
 2. 路由将 URL 请求映射到指定控制器上；

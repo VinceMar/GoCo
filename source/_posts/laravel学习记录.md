@@ -54,6 +54,45 @@ Route::get('user/{name?}', function ($name = null) {
     return $name;
 });
 ```
-# laravel控制器
-替代路由中由闭包所实现的逻辑处理  
-单行为控制器需要声明一个`__invoke`方法，此时路由中无需指明控制器的对应方法
+
+## 资源路由
+### store
+store方法用于处理从表单传入的数据，其中可以做数据验证validate，确认密码的字段需要name为password_confirmation，这样就可以在validate的password的验证规则中填写confirm实现校验确认密码。  
+#### 校验规则
+ |规则|说明|示例|
+ |----|----|----|
+ |confirmed|验证的字段必须和 foo_confirmation 的字段值一致。例如，如果要验证的字段是 password，输入中必须存在匹配的 password_confirmation 字段。||
+ |size|验证的字段必须具有与给定值匹配的大小。对于字符串来说，value 对应于字符数。对于数字来说，value 对应于给定的整数值。对于数组来说， size 对应的是数组的 count 值。对文件来说，size 对应的是文件大小（单位 kb ）。||
+ |max|验证中的字段必须小于或等于 value。字符串、数字、数组或是文件大小的计算方式都用 size 方法进行评估。||
+ |min|验证中的字段必须具有最小值。字符串、数字、数组或是文件大小的计算方式都用 size 方法进行评估。||
+ |unique|unique:table,column,except,idColumn验证的字段在给定的数据库表中必须是唯一的。如果没有指定 column，将会使用字段本身的名称|'email' => 'unique:users,email_address'|
+ |required|验证的字段必须存在于输入数据中，而不是空。如果满足以下条件之一，则字段被视为「空」： 该值为 null. 该值为空字符串。 该值为空数组或空的 可数 对象。 该值为没有路径的上传文件。||
+ |email|验证的字段必须符合 e-mail 地址格式。||
+ |sometimes|只有在该字段存在时， 才对字段执行验证||
+ |nullable|如果你不希望验证程序将 null 值视为无效的，那就将「可选」的请求字段标记为 nullable，也可以理解为有值时才验证。||
+
+ #### 验证错误提示消息
+
+ ```php
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+ ```
+但是默认的提示消息是英文的，所以我们需要安装一个中文语言包
+```
+composer require caouecs/laravel-lang:~3.0
+```
+默认的错误提示消息为英文，所以使用时需要复制`vendor/caouecs/laravel-lang/src`下的语言包到`resource/lang`目录下，并修改`config/app.php`中`locale => 'zh-CN'`；当然也可以自己写验证消息，只需要在validate中传入第三个参数即可
+```
+$this->validate( $request, [
+            'stunum'      => 'required|unique:users',
+        ], [
+            'stunum.required'      => '学号 不能为空',
+        ] );
+```

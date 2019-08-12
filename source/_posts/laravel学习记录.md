@@ -55,7 +55,10 @@ Route::get('user/{name?}', function ($name = null) {
 });
 ```
 
-## 资源路由
+# laravel控制器
+## 资源控制器
+补充资源控制器  
+如果你想在默认的资源路由中增加额外的路由，你应该在 `Route::resource` 之前定义这些路由。否则由 resource 方法定义的路由可能会无意中优先于你补充的路由：
 ### store
 store方法用于处理从表单传入的数据，其中可以做数据验证validate，确认密码的字段需要name为password_confirmation，这样就可以在validate的password的验证规则中填写confirm实现校验确认密码。  
 #### 校验规则
@@ -96,3 +99,35 @@ $this->validate( $request, [
             'stunum.required'      => '学号 不能为空',
         ] );
 ```
+
+# laravel模型关联
+
+## 一对多
+例如：
+博客文章&评论是一对多关系：一篇文章可以有多个评论，但一个评论只能属于一篇文章  
+```
+class Post extends Model
+{
+    /**
+     * 获得此博客文章的评论。
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+}
+```
+```
+class Comment extends Model
+{
+    /**
+     * 获得此评论所属的文章。
+     */
+    public function post()
+    {
+        return $this->belongsTo('App\Post');
+    }
+}
+```
+
+在上面的例子中，Eloquent 会尝试用 `Comment` 模型的 `post_id` 与 Post 模型的 `id` 进行匹配。默认外键名是 Eloquent 依据关联名、并在关联名后加上 `_id` 后缀确定的。当然，如果 Comment 模型的外键不是 `post_id`，那么可以将自定义键名作为第二个参数传递给 belongsTo 方法

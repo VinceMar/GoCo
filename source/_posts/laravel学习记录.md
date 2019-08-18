@@ -36,6 +36,15 @@ categories:
 如有.env 的情况，直接进行第二步。
 两种情况皆无，请重新安装laravel。
 
+## Laravel-MIX 运行`npm run watch-poll`报错
+执行以下命令：
+
+1.$ rm -rf node_modules
+
+2.$ yarn config set registry http://registry.cnpmjs.org
+
+3.$ yarn install --no-bin-links
+接下来打开 pakage.json 修改【去掉四处 cross-env 】
 # laravel路由
 ```php
 Route::get('/', 'StaticPagesController@home');

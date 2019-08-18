@@ -45,6 +45,17 @@ categories:
 
 3.$ yarn install --no-bin-links
 接下来打开 pakage.json 修改【去掉四处 cross-env 】
+
+## 执行`composer dumpautoload`报错
+错误信息：
+```shell
+PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Composer\Autoload\ClassLoader::addClassMap() must be of the type array, integer given,......
+```
+解决：  
+1. 进入项目 根目录：
+2. rm -rf vendor/composer/autoload_*  
+3. composer dumpautoload
+
 # laravel路由
 ```php
 Route::get('/', 'StaticPagesController@home');
@@ -158,3 +169,21 @@ class Comment extends Model
 ```
 
 在上面的例子中，Eloquent 会尝试用 `Comment` 模型的 `post_id` 与 Post 模型的 `id` 进行匹配。默认外键名是 Eloquent 依据关联名、并在关联名后加上 `_id` 后缀确定的。当然，如果 Comment 模型的外键不是 `post_id`，那么可以将自定义键名作为第二个参数传递给 belongsTo 方法
+
+# 扩展包安装
+1. 中文语言包
+```
+composer require "overtrue/laravel-lang:~3.0"
+```
+2. 验证码
+```
+composer require "mews/captcha:~2.0"
+```
+运行以下命令生成配置文件 config/captcha.php：
+```
+php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider' 
+```
+3. font-awesome
+```
+yarn add --dev @fortawesome/fontawesome-free
+```

@@ -112,6 +112,14 @@ store方法用于处理从表单传入的数据，其中可以做数据验证val
  |sometimes|只有在该字段存在时， 才对字段执行验证||
  |nullable|如果你不希望验证程序将 null 值视为无效的，那就将「可选」的请求字段标记为 nullable，也可以理解为有值时才验证。||
 
+若在某个属性第一次验证失败后停止运行验证规则，附加bail
+```
+$this->validate($request, [
+    'title' => 'bail|required|unique:posts|max:255',
+    'body' => 'required',
+]);
+```
+
  #### 验证错误提示消息
 
  ```php
@@ -136,6 +144,23 @@ $this->validate( $request, [
         ], [
             'stunum.required'      => '学号 不能为空',
         ] );
+```
+
+# 表单请求验证
+
+如果校验规则比较复杂，可以运行`php artisan make:request StoreBlogPost`生成一个表单请求类，然后在控制器方法中类型提示传入的请求`public function store(StoreBlogPost $request)`  
+如果验证失败，就会生成一个让用户返回到先前的位置的重定向响应。  
+如果传入的请求是 AJAX，会向用户返回具有 422 状态代码和验证错误信息的 JSON 数据的 HTTP 响应。
+
+重写messages方法可以自定义错误消息  
+```
+public function messages()
+{
+    return [
+        'title.required' => 'A title is required',
+        'body.required'  => 'A message is required',
+    ];
+}
 ```
 
 # laravel模型关联

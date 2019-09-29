@@ -170,6 +170,15 @@ class Comment extends Model
 
 在上面的例子中，Eloquent 会尝试用 `Comment` 模型的 `post_id` 与 Post 模型的 `id` 进行匹配。默认外键名是 Eloquent 依据关联名、并在关联名后加上 `_id` 后缀确定的。当然，如果 Comment 模型的外键不是 `post_id`，那么可以将自定义键名作为第二个参数传递给 belongsTo 方法
 
+# 控制器
+
+资源控制器绑定模型：
+```
+php artisan make:controller PhotoController --resource --model=Photo
+```
+
+
+
 # 扩展包安装
 1. 中文语言包
 ```

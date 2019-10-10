@@ -8,8 +8,9 @@ categories:
 - Web开发
 ---
 
-# 前言
-    最近跟着慕课网的教程（https://www.imooc.com/learn/754）实现了一个在线表格的CRUD（PHP+Ajax实现）。本文为总结帖，用来梳理思路以及记录细节。
+# 前言  
+
+最近跟着慕课网的教程（ https://www.imooc.com/learn/754 ）实现了一个在线表格的CRUD（PHP+Ajax实现）。本文为总结帖，用来梳理思路以及记录细节。
 <!-- more -->
 
 # 正文

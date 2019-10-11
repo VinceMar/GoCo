@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="AR概述概念定义： &amp;emsp;&amp;emsp;增强现实（Augmented Reality，简称AR），也有对应VR虚拟实境一词的翻译称为实拟虚境或扩张现实，是指透过摄影机影像的位置及角度精算并加上图像分析技术，让屏幕上的虚拟世界能够与现实世界场景进行结合与交互的技术。这种技术于1990年提出。随着随身电子产品运算能力的提升，增强现实的用途也越来越广。   —-WIKI">
+<meta name="keywords" content="AR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初探AR技术">
+<meta property="og:url" content="http://yoursite.com/2019/07/15/初探AR技术/index.html">
+<meta property="og:site_name" content="GoCo - Blog">
+<meta property="og:description" content="AR概述概念定义： &amp;emsp;&amp;emsp;增强现实（Augmented Reality，简称AR），也有对应VR虚拟实境一词的翻译称为实拟虚境或扩张现实，是指透过摄影机影像的位置及角度精算并加上图像分析技术，让屏幕上的虚拟世界能够与现实世界场景进行结合与交互的技术。这种技术于1990年提出。随着随身电子产品运算能力的提升，增强现实的用途也越来越广。   —-WIKI">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716010255.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716004025.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716004126.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716004210.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716004315.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723101438.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723104123.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723104748.png">
+<meta property="og:image" content="https://library.vuforia.com/content/dam/vuforia-library/articles/solution/unity-model-target/mt_gif_02-optimized.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723105225.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723105309.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723105453.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723105539.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723105801.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723110354.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723110655.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190717233335.png">
+<meta property="og:updated_time" content="2019-10-11T10:07:46.625Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初探AR技术">
+<meta name="twitter:description" content="AR概述概念定义： &amp;emsp;&amp;emsp;增强现实（Augmented Reality，简称AR），也有对应VR虚拟实境一词的翻译称为实拟虚境或扩张现实，是指透过摄影机影像的位置及角度精算并加上图像分析技术，让屏幕上的虚拟世界能够与现实世界场景进行结合与交互的技术。这种技术于1990年提出。随着随身电子产品运算能力的提升，增强现实的用途也越来越广。   —-WIKI">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716010255.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/15/初探AR技术/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>初探AR技术 | GoCo - Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GoCo - Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Keep Coding</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">14</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">4</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">13</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/15/初探AR技术/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GuoChen">
+      <meta itemprop="description" content="计算机专业在读">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GoCo - Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">初探AR技术
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-15 23:56:05" itemprop="dateCreated datePublished" datetime="2019-07-15T23:56:05+08:00">2019-07-15</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-11 18:07:46" itemprop="dateModified" datetime="2019-10-11T18:07:46+08:00">2019-10-11</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/移动开发/" itemprop="url" rel="index"><span itemprop="name">移动开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="AR概述"><a href="#AR概述" class="headerlink" title="AR概述"></a>AR概述</h1><h2 id="概念定义："><a href="#概念定义：" class="headerlink" title="概念定义："></a>概念定义：</h2><blockquote>
+<p>&emsp;&emsp;增强现实（Augmented Reality，简称AR），也有对应VR虚拟实境一词的翻译称为实拟虚境或扩张现实，是指透过摄影机影像的位置及角度精算并加上图像分析技术，让屏幕上的虚拟世界能够与现实世界场景进行结合与交互的技术。这种技术于1990年提出。随着随身电子产品运算能力的提升，增强现实的用途也越来越广。   —-WIKI</p>
+</blockquote>
+<a id="more"></a>
+
+<p>&emsp;&emsp;其实，AR只是VR技术中的一个分支（增强式 VR 系统），它即允许用户看到真实的世界，也能同时看到叠加在真实世界上的虚拟对象。  </p>
+<h2 id="技术手段："><a href="#技术手段：" class="headerlink" title="技术手段："></a>技术手段：</h2><p>&emsp;&emsp;AR从其技术手段和表现形式上，可以明确分为大约两类：一是Vision based AR，即基于计算机视觉的AR，二是LBS based AR，即基于地理位置信息的AR</p>
+<ul>
+<li>Vision based AR<br>&emsp;&emsp;基于识别的方式学名叫做Vision based AR，即基于计算机视觉的AR，该方式是利用计算机视觉方法建立现实世界与屏幕之间的映射关系，使我们想要绘制的图形或是 3D 模型可以如同依附在现实物体上一般展现在屏幕上，如何做到这一点呢？本质上来讲就是要找到现实场景中的一个依附平面，然后再将这个 3 维场景下的平面映射到我们 2 维屏幕上，然后再在这个平面上绘制你想要展现的图形，从技术实现手段上可以分为 2 类：<ol>
+<li>Marker-Based AR<br>&emsp;&emsp;这种实现方法需要一个事先制作好的 Marker(例如: 绘制着一定规格形状的模板卡片或者二维码），然后把 Marker 放到现实中的一个位置上，相当于确定了一个现实场景中的平面，然后通过摄像头对 Marker 进行识别和姿态评估（Pose Estimation），并确定其位置，然后将该 Marker 中心为原点的坐标系称为 Marker Coordinates 即模板坐标系，我们要做的事情实际上是要得到一个变换从而使模板坐标系和屏幕坐标系建立映射关系，这样我们根据这个变换在屏幕上画出的图形就可以达到该图形依附在 Marker 上的效果，理解其原理需要一点 3D 射影几何的知识，从模板坐标系变换到真实的屏幕坐标系需要先旋转平移到摄像机坐标系（Camera Coordinates）然后再从摄像机坐标系映射到屏幕坐标系（其实由于硬件误差这中间还需要理想屏幕坐标系到实际屏幕坐标系的转换，这里不深究），见下图。  <img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716010255.png" width="500px"></li>
+<li>Marker-Less AR<br>&emsp;&emsp;基本原理与 Marker based AR 相同，不过它可以用任何具有足够特征点的物体 (例如：书的封面) 作为平面基准，而不需要事先制作特殊的模板，摆脱了模板对 AR 应用的束缚。它的原理是通过一系列算法 (如：SURF，ORB，FERN 等) 对模板物体提取特征点，并记录或者学习这些特征点。当摄像头扫描周围场景，会提取周围场景的特征点并与记录的模板物体的特征点进行比对，如果扫描到的特征点和模板特征点匹配数量超过阈值，则认为扫描到该模板，然后根据对应的特征点坐标估计 Tm 矩阵，之后再根据 Tm 进行图形绘制(方法与 Marker-Based AR 类似)。</li>
+</ol>
+</li>
+<li>LBS based AR<br>&emsp;&emsp;其基本原理是通过GPS获取用户的地理位置，然后从某些数据源（比如wiki，google）等处获取该位置附近物体(如周围的餐馆，银行，学校等)的POI信息，再通过移动设备的电子指南针和加速度传感器获取用户手持设备的方向和倾斜角度，通过这些信息建立目标物体在现实场景中的平面基准(相当于marker)，之后坐标变换显示等的原理与Marker-Based AR类似。这种AR技术利用设备的GPS功能及传感器来实现，摆脱了应用对Marker的依赖，用户体验方面要比Marker-Based AR更好，而且由于不用实时识别Marker姿态和计算特征点，性能方面也好于Marker-Based AR和Marker-Less AR，因此对比Marker-Based AR和Marker-Less AR，LBS-Based AR可以更好的应用到移动设备上。</li>
+</ul>
+<h2 id="参考实例："><a href="#参考实例：" class="headerlink" title="参考实例："></a>参考实例：</h2><ol>
+<li>增强现实导航应用   <img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716004025.png" width="500px"></li>
+<li>虚拟颠球  <img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716004126.png" width="500px"></li>
+<li>实景翻译  <img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716004210.png" width="500px"></li>
+<li>时光机器  <img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190716004315.png" width="500px">
+
+</li>
+</ol>
+<h1 id="AR解决方案"><a href="#AR解决方案" class="headerlink" title="AR解决方案"></a>AR解决方案</h1><h2 id="AR-SDK"><a href="#AR-SDK" class="headerlink" title="AR SDK"></a>AR SDK</h2><p>&emsp;&emsp;什么是AR SDK?AR SDK是AR应用的技术核心，驱动着AR App的发展和创新。AR SDK的作用是将数字内容和信息与现实世界融合。SDK的功能最终将决定AR应用程序中的特性和功能，因此根据项目要求选择正确的平台至关重要。AR SDK包含许多应用程序组件，像内容呈现，AR跟踪和场景识别等。内容呈现意味着可以将数字信息和3D对象覆盖在现实世界物体之上，跟踪表示“应用程序的眼睛”，场景识别充当应用程序的中枢神经系统。每个AR SDK都将配备自己独特的属性，使AR开发人员能够以最佳方式开发出具有识别，渲染和跟踪功能的AR应用程序。下面来介绍几个常用的AR SDK：</p>
+<h3 id="ARKit"><a href="#ARKit" class="headerlink" title="ARKit"></a>ARKit</h3><p><img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723101438.png" alt></p>
+<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>&emsp;&emsp;ARKit 是一个移动端 AR 平台，用于在 iOS 上开发增强现实 app。可以在目前的数千万台 iOS 设备上运行。但为了获得 ARKit 的完整功能，需要 A9 及以上芯片。其实也就是大部分运行 iOS 11 的设备，包括 iPhone 6S。<br>ARKit提供了以下功能：</p>
+<ul>
+<li>SLAM tracking and sensor fusion(SLAM场景识别)</li>
+<li>Ambient lighting estimation(环境光评估)</li>
+<li>Scale estimations(刻度估量)</li>
+<li>Vertical and horizontal plane estimation with basic boundaries(基本边界的垂直和水平面检测)</li>
+<li>Stable and fast motion tracking(快速稳定的动作捕捉)</li>
+<li>Multiple Face Tracking(多重人脸追踪)</li>
+<li>Collaborative Sessions(多人会话)</li>
+<li>Simultaneous Front and Back Camera(同步前置、后置摄像头)</li>
+<li>People Occlusion</li>
+</ul>
+<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><p>据了解,ARKit结合Apple自家的机器学习开发库Core ML，可以实现AR场景下的物体识别，详见<br><a href="https://www.bilibili.com/video/av49136585" target="_blank" rel="noopener">利用ar技术进行物体识别</a><br>(真实性未知)</p>
+<h3 id="ARCore"><a href="#ARCore" class="headerlink" title="ARCore"></a>ARCore</h3><img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723104123.png" width="500px">
+
+<h4 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h4><p>&emsp;&emsp;ARCore是Google专有的增强现​​实SDK(对标ARKit)。它使开发人员能够在部分支持ARCore的智能手机和平板电脑上启动并运行AR应用。ARCore最值得注意的功能之一是它还支持部分iOS的设备。ARCore拥有三个重要功能：</p>
+<ul>
+<li>光估测：ARCore 可以检测其环境光线的相关信息，并为您提供给定摄像头图像的平均光强度和色彩校正。 此信息让您能够使用与周围环境相同的光照来照亮您的虚拟物体，提升它们的真实感。</li>
+<li>环境理解：ARCore 会通过检测特征点和平面来不断改进它对现实世界环境的理解。ARCore 可以查找看起来位于常见水平或垂直表面（例如桌子或墙）上的成簇特征点，并让这些表面可以由您的应用用作平面。 ARCore 也可以确定每个平面的边界，并将该信息提供给您的应用。 您可以使用此信息将虚拟物体置于平坦的表面上。由于 ARCore 使用特征点来检测平面，因此可能无法正确检测像白墙一样没有纹理的平坦表面。</li>
+<li>运动跟踪：当您的手机在现实世界中移动时，ARCore 会通过一个名为并行测距与映射（或 COM）的过程来理解手机相对于周围世界的位置。 ARCore 会检测捕获的摄像头图像中的视觉差异特征（称为特征点），并使用这些点来计算其位置变化。 这些视觉信息将与设备 IMU 的惯性测量结果结合，一起用于估测摄像头随着时间推移而相对于周围世界的姿态（位置和方向）。</li>
+<li>用户交互：ARCore 利用命中测试来获取对应于手机屏幕的 (x,y) 坐标（通过点按或您希望应用支持的任何其他交互提供），并将一条射线投影到摄像头的视野中，返回这条射线贯穿的任何平面或特征点以及交叉位置在现实世界空间中的姿态。 这让用户可以选择环境中的物体或者与它们互动。</li>
+<li>共享：借助 ARCore Cloud Anchor API，您可以创建适用于 Android 和 iOS 设备的协作性或多人游戏应用。使用云锚点，一台设备可以将锚点和附近的特征点发送到云端进行托管。 可以将这些锚点与同一环境中 Android 或 iOS 设备上的其他用户共享。 这使应用可以渲染连接到这些锚点的相同 3D 对象，从而让用户能够同步拥有相同的 AR 体验。</li>
+<li>定向点：借助定向点，您可以将虚拟物体置于倾斜的表面上。 当您执行会返回特征点的命中测试时，ARCore 将查看附近的特征点并使用这些特征点估算表面在给定特征点处的角度。 然后，ARCore 会返回一个将该角度考虑在内的姿态。由于 ARCore 使用成簇特征点来检测表面的角度，因此可能无法正确检测像白墙一样没有纹理的表面。</li>
+<li>锚点和可跟踪对象：姿态会随着 ARCore 改进它对自身位置和环境的理解而变化。 当您想要放置一个虚拟物体时，您需要定义一个锚点来确保 ARCore 可以跟踪物体随时间推移的位置。 很多时候，您需要基于命中测试返回的姿态创建一个锚点，如用户交互中所述。</li>
+<li>增强图像：使用增强图像，您可以构建能够响应特定 2D 图像（如产品包装或电影海报）的 AR 应用。 用户可以在将手机的摄像头对准特定图像时触发 AR 体验，例如，他们可以将手机的摄像头对准电影海报，使人物弹出，然后引发一个场景。</li>
+</ul>
+<h4 id="ARCore-的工作原理"><a href="#ARCore-的工作原理" class="headerlink" title="ARCore 的工作原理"></a>ARCore 的工作原理</h4><p>&emsp;&emsp;从本质上讲，ARCore 在做两件事：在移动设备移动时跟踪它的位置和构建自己对现实世界的理解。<br>&emsp;&emsp;ARCore 的运动跟踪技术使用手机摄像头标识兴趣点（称为特征点），并跟踪这些点随着时间变化的移动。 将这些点的移动与手机惯性传感器的读数组合，ARCore 可以在手机移动时确定它的位置和屏幕方向。<br>除了标识关键点外，ARCore 还会检测平坦的表面（例如桌子或地面），并估测周围区域的平均光照强度。 这些功能共同让 ARCore 可以构建自己对周围世界的理解。<br>&emsp;&emsp;借助 ARCore 对现实世界的理解，您能够以一种与现实世界无缝整合的方式添加物体、注释或其他信息。 您可以将一只打盹的小猫放在咖啡桌的一角，或者利用艺术家的生平信息为一幅画添加注释。 运动跟踪意味着您可以移动和从任意角度查看这些物体，即使您转身离开房间，当您回来后，小猫或注释还会在您添加的地方。</p>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><p>&emsp;&emsp;Google出品，必属精品，但唯一美中不足的是，目前(2019年)ARCore在国内支持的设备真的是少之又少（<a href="https://developers.google.com/ar/discover/supported-devices?hl=zh-cn" target="_blank" rel="noopener">支持的设备</a>）,这就让许多想尝试ARCore强大功能的人不得不放弃这个念头(比如我)。</p>
+<h3 id="Vuforia"><a href="#Vuforia" class="headerlink" title="Vuforia"></a>Vuforia</h3><img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723104748.png" width="500px">
+
+<h4 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h4><p>&emsp;&emsp;Vuforia是高通推出的针对移动设备扩增实境应用的软件开发工具包。它利用计算机视觉技术实时识别和捕捉平面图像或简单的三维物体（例如盒子），然后允许开发者通过照相机取景器放置虚拟物体并调整物体在镜头前实体背景上的位置。<br>功能：</p>
+<ul>
+<li>识别模型目标<img src="https://library.vuforia.com/content/dam/vuforia-library/articles/solution/unity-model-target/mt_gif_02-optimized.gif" width="500px"></li>
+<li>识别图片目标<img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723105225.png" width="500px"></li>
+<li>识别对象目标<img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723105309.png" width="500px"></li>
+<li>多重目标<img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723105453.png" width="500px"></li>
+<li>柱体目标<img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723105539.png" width="500px"></li>
+<li>VuMark：二维码\条形码</li>
+<li>使用外置摄像头</li>
+<li>平面识别：允许在水平面防止模型内容<img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723105801.png" width="500px"></li>
+</ul>
+<h4 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h4><p>&emsp;&emsp;据了解，Vuforia是相对较早的AR SDK，因此在各方面的功能都较为成熟，尤其是与Unity结合开发游戏的效果非常不错，只不过好像商用版本价格有点高。</p>
+<h3 id="Wikitude"><a href="#Wikitude" class="headerlink" title="Wikitude"></a>Wikitude</h3><img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723110354.png" width="500px">
+
+<h4 id="简介-3"><a href="#简介-3" class="headerlink" title="简介"></a>简介</h4><p>&emsp;&emsp;Wikitude提供了一体式增强现实SDK，并结合了3D跟踪技术（基于SLAM）、顶级图像识别和跟踪，以及移动、平板电脑和智能眼镜的地理位置AR，支持可扩展的Unity、Cordova、Titanium和Xamarin框架。可以使用Wikitude SDK构建惊人的基于位置、标记或无标记的AR体验。企业、机构和独立开发人员受益于Wikitude的工具，用于开发适用于Android，iOS，智能手机，平板电脑，智能眼镜的AR应用程序。<br>功能：</p>
+<ul>
+<li>即时跟踪：挖出标记。即时跟踪是使用WikitudeSLAM技术的第一个功能。它可以轻松地映射环境并显示AR内容，无需目标图像，此功能适用于室内和室外环境。</li>
+<li>扩展跟踪：一旦目标图像被识别，用户可以通过自由移动设备来继续AR体验，而不需要将标记保持在相机视图中。此功能现在拥有与Wikitude即时跟踪功能相同的SLAM算法，为基于Wikitude的应用提供了强大的性能。</li>
+<li>图像识别：Wikitude SDK嵌入了内置的图像识别和跟踪技术，而且这些功能是开箱即用的。它最多可以拍摄1000张可以离线识别的图像。开发人员可以在实时摄像机图像中增强识别的图像和地理位置的兴趣点之间实现无缝切换。</li>
+<li>基于位置的服务与GEO数据：Wikitude SDK提供了许多方便的功能，简化了使用地理参考数据。用户兴趣点的设计和布局是完全可定制的，以满足各种需要。</li>
+<li>3D增强：Wikitude SDK可以在增强现实场景中加载和渲染3D模型。从行业工具（比如Autodesk Maya 3D或Blender等工具）导入3D模型，每个3D模型基于新的Native API，Wikitude提供了一个用于Unity3D框架的插件，因此开发者可以将Wikitude的计算机视觉引擎整合到基于Unity3D的游戏或应用程序中。</li>
+<li>云识别：Wikitude的云识别服务允许开发人员处理云中托管的数千个目标图像。Wikitude的云识别技术是一个可扩展的解决方案，它具有响应时间快、识别率高的特点。每个月向开发者提供了对云识别服务的1,000,000次的免费扫描调用，还为企业提供了专用的服务器选项和定制服务。<h3 id="EasyAR"><a href="#EasyAR" class="headerlink" title="EasyAR"></a>EasyAR</h3><img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190723110655.png" alt><h4 id="简介-4"><a href="#简介-4" class="headerlink" title="简介"></a>简介</h4>&emsp;&emsp;EasyAR是Easy Augmented Reality的缩写，是视辰信息科技（上海）有限公司的增强现实解决方案系列的子品牌，意义是：让增强现实变得简单易实施，让客户都能将该技术广泛应用到广告、展馆、活动、app等之中。<br>功能：</li>
+<li>表面跟踪</li>
+<li>3D物体跟踪</li>
+<li>平面图像跟踪</li>
+<li>录屏</li>
+<li>内容与交互支持</li>
+<li>API多语言优化</li>
+<li>Image Target Data</li>
+</ul>
+<h4 id="优缺点-2"><a href="#优缺点-2" class="headerlink" title="优缺点"></a>优缺点</h4><p>&emsp;&emsp;EasyAR是优秀的国产AR解决方案提供者，不仅有价格合理的AR SDK，还有像Web AR、姿态识别、手势识别、云识别等产品。由于是国产平台，咨询问题、疑难解答等都十分方便。不过缺点就是某些高端功能可能不如国外SDK功能强劲，并且使用文档看上去不是很详细，有点廉价的感觉。</p>
+<h2 id="Web-AR"><a href="#Web-AR" class="headerlink" title="Web AR"></a>Web AR</h2><p><img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20190717233335.png" alt></p>
+<ol>
+<li>AR.js<br>&emsp;&emsp;AR.js是由Jerome Etienne开发维护的一款WebAR库，代码托管在<a href="https://github.com/jeromeetienne/AR.js" target="_blank" rel="noopener">GitHub</a>。其实，AR.js就是将WebAR所需的各种组件与库经过整理、维护，拼凑成了一把锋利精美的瑞士军刀，可以流畅地以高帧率运行在各种设备上。其中，AR.js主要封装了以下几个库：<ul>
+<li>JSARToolKit：老牌开源AR库ARToolKit的JavaScript版本,主要提供了识别和追踪 marker 的功能。</li>
+<li>Three.js:Three.js是一款开源的主流3D绘图JS引擎，我们知道WebGL是一种网页3D绘图标准，和jQuery简化了HTML DOM操作一样，Three.js可以简化WebGL编程。</li>
+<li>aframe-ar.js:A-Frame 团队发布的 其中包括了一些 Web AR 组件，用 A-Frame 的各种组件可以让你用很少的代码构建出 AR 所需要的 3D 立体世界。A-Frame.js是一个用来构建虚拟现实（VR）应用的网页开发框架（部分API也可以开发AR应用），是当下用来开发WebVR内容主流技术方案。A-Frame基于HTML，容易上手。但是A-Frame不仅仅是一个3D场景渲染引擎或者一个标记语言。其核心思想是基于Three.js来提供一个声明式、可扩展以及组件化的编程结构。<br>在AR.js中，分为两种写法：使用Three.js结合JS库以及使用A-Frame.js，若选择使用Three.js结合JS库的方式，需要学习了解很多JS库的用法，代码量比较大，学习成本较高；而使用A-Frame.js，则可以大量减少代码量，比如著名的<a href="https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fdbf" target="_blank" rel="noopener">10行代码实现AR</a>。</li>
+</ul>
+</li>
+<li>WebARonARKit,WebARonARCore<br>&emsp;&emsp;ARKit 和 ARCore 分别是苹果和谷歌两大巨头出品的移动 AR SDK，提供的功能也类似：运动追踪、环境感知和光线感应，我相信很多对 AR 感兴趣的开发者对这两个 SDK 都不陌生。但这两个都是移动 AR 的 SDK，于是谷歌的 AR 团队提供了 WebARonARKit 和 WebARonARCore 两个库，以便开发者能用 Web 技术来基于 ARKit 和 ARCore 开发，从而实现 WebAR。这两个库虽然功能强大，但因为是ARKit和ARCore的Web衍生版本，所以国内支持这两个库的移动设备仍然很少。</li>
+<li>EasyAR<br> &emsp;&emsp;EasyAR是国内首款免费全平台AR引擎，提供了EasyAR SDK以及WebAR等解决方案，可以快速构建AR应用。</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;目前来说，使用AR SDK来开发AR应用技术层面已经较为成熟完整，开发者只需要根据项目需要选择合适的AR SDK，因此AR产品是否有优势取决于其是否有独特创意。<br>而在web端，无论采用哪种实现手段，最主要是运行环境对webRTC、webGL 两个特性的支持程度。而且，Web端目前只有基于标记图Marker的应用有着比较良好的体验，WebAROnARCore和WebAROnARKit所支持的MarkerLess方案都还仅仅是测试阶段，并且国内外对webAR 的讨论和demo 案例目前都比较少，能够搜到的资料几乎都是英文版，总的来说使用WebAR来实现一些简单的功能是可以的，完整的商业项目暂不推荐。</p>
+<h1 id="本文参考"><a href="#本文参考" class="headerlink" title="本文参考"></a>本文参考</h1><p>AR技术原理 <a href="https://www.jianshu.com/p/3aac1ec6ea2f" target="_blank" rel="noopener">https://www.jianshu.com/p/3aac1ec6ea2f</a><br>AR技术这么火 但你知道其中背后的工作原理吗？<a href="https://zhuanlan.zhihu.com/p/48281104" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/48281104</a><br>增强现实技术 <a href="https://blog.csdn.net/u010922186/article/details/41554171" target="_blank" rel="noopener">https://blog.csdn.net/u010922186/article/details/41554171</a><br>Web AR 入門：AR.js Tracking.js Three.js A-frame.js<br><a href="http://skyroxas.tw/web-ar-%e5%85%a5%e9%96%80%ef%bc%9a-ar-js-tracking-js-three-js-a-frame-js/" target="_blank" rel="noopener">http://skyroxas.tw/web-ar-%e5%85%a5%e9%96%80%ef%bc%9a-ar-js-tracking-js-three-js-a-frame-js/</a><br>Web 前端中的增强现实（AR）开发技术 <a href="https://geekplux.com/2018/01/18/augmented-reality-development-tech-in-web-frontend/" target="_blank" rel="noopener">https://geekplux.com/2018/01/18/augmented-reality-development-tech-in-web-frontend/</a><br>12 Best Augmented Reality SDKs <a href="https://dzone.com/articles/12-best-augmented-reality-sdks" target="_blank" rel="noopener">https://dzone.com/articles/12-best-augmented-reality-sdks</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>感谢你请我喝无糖可乐！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98.png" alt="GuoChen 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg" alt="GuoChen 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/AR/" rel="tag"># AR</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/05/计算机组成原理复习/" rel="next" title="计算机组成原理复习">
+                <i class="fa fa-chevron-left"></i> 计算机组成原理复习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/16/Hexo博客操作手册/" rel="prev" title="Hexo博客操作手册">
+                Hexo博客操作手册 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/logo.jpg" alt="GuoChen">
+            
+              <p class="site-author-name" itemprop="name">GuoChen</p>
+              <div class="site-description motion-element" itemprop="description">计算机专业在读</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/VinceMar" title="GitHub &rarr; https://github.com/VinceMar" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:chenguo0156@gmail.com" title="E-Mail &rarr; mailto:chenguo0156@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AR概述"><span class="nav-number">1.</span> <span class="nav-text">AR概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念定义："><span class="nav-number">1.1.</span> <span class="nav-text">概念定义：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技术手段："><span class="nav-number">1.2.</span> <span class="nav-text">技术手段：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考实例："><span class="nav-number">1.3.</span> <span class="nav-text">参考实例：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AR解决方案"><span class="nav-number">2.</span> <span class="nav-text">AR解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AR-SDK"><span class="nav-number">2.1.</span> <span class="nav-text">AR SDK</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ARKit"><span class="nav-number">2.1.1.</span> <span class="nav-text">ARKit</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">扩展</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARCore"><span class="nav-number">2.1.2.</span> <span class="nav-text">ARCore</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-1"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ARCore-的工作原理"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">ARCore 的工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优缺点"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">优缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vuforia"><span class="nav-number">2.1.3.</span> <span class="nav-text">Vuforia</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-2"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优缺点-1"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">优缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wikitude"><span class="nav-number">2.1.4.</span> <span class="nav-text">Wikitude</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-3"><span class="nav-number">2.1.4.1.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EasyAR"><span class="nav-number">2.1.5.</span> <span class="nav-text">EasyAR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-4"><span class="nav-number">2.1.5.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优缺点-2"><span class="nav-number">2.1.5.2.</span> <span class="nav-text">优缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-AR"><span class="nav-number">2.2.</span> <span class="nav-text">Web AR</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#本文参考"><span class="nav-number">4.</span> <span class="nav-text">本文参考</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GuoChen</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="操作系统的目标和作用主要目标：方便性、有效性、可扩充性、开放性   作用： 用户与计算机硬件系统之间的接口   计算机系统资源管理   对计算机资源的抽象">
+<meta name="keywords" content="操作系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统复习">
+<meta property="og:url" content="http://yoursite.com/2019/07/02/操作系统复习/index.html">
+<meta property="og:site_name" content="GoCo - Blog">
+<meta property="og:description" content="操作系统的目标和作用主要目标：方便性、有效性、可扩充性、开放性   作用： 用户与计算机硬件系统之间的接口   计算机系统资源管理   对计算机资源的抽象">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-11T10:07:46.625Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="操作系统复习">
+<meta name="twitter:description" content="操作系统的目标和作用主要目标：方便性、有效性、可扩充性、开放性   作用： 用户与计算机硬件系统之间的接口   计算机系统资源管理   对计算机资源的抽象">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/02/操作系统复习/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>操作系统复习 | GoCo - Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GoCo - Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Keep Coding</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">14</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">4</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">13</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/操作系统复习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GuoChen">
+      <meta itemprop="description" content="计算机专业在读">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GoCo - Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">操作系统复习
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-02 16:15:27" itemprop="dateCreated datePublished" datetime="2019-07-02T16:15:27+08:00">2019-07-02</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-11 18:07:46" itemprop="dateModified" datetime="2019-10-11T18:07:46+08:00">2019-10-11</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机科学/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="操作系统的目标和作用"><a href="#操作系统的目标和作用" class="headerlink" title="操作系统的目标和作用"></a>操作系统的目标和作用</h2><p>主要目标：方便性、有效性、可扩充性、开放性  </p>
+<h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h3><ol>
+<li>用户与计算机硬件系统之间的接口  </li>
+<li>计算机系统资源管理  </li>
+<li>对计算机资源的抽象</li>
+</ol>
+<hr>
+<a id="more"></a>
+<h2 id="操作系统的发展过程"><a href="#操作系统的发展过程" class="headerlink" title="操作系统的发展过程"></a>操作系统的发展过程</h2><ol>
+<li>单道批处理：<ol>
+<li>作业脱机方式输入到磁带，系统配监督程序，使得作业一个接一个处理</li>
+<li>缺点：不能充分利用系统资源</li>
+</ol>
+</li>
+<li>多道批处理：<ol>
+<li>用户作业先放到外存，后由作业调度算法调作业入内存，使其共享CPU和系统中的各种资源</li>
+<li>优点：资源利用率高、系统吞吐量大</li>
+<li>缺点：平均周转时间长、无交互能力</li>
+</ol>
+</li>
+<li>分时系统<ol>
+<li>允许多个用户同时通过自己的终端，以交互方式使用计算机。共享资源</li>
+<li>特征：多路性、独立性、及时性、交互性</li>
+</ol>
+</li>
+<li>实时系统<ol>
+<li>系统能及时响应外部事件的请求，在规定时间内完成对事件的处理，并控制所有实时任务协调一致运行</li>
+<li>实时与分时特征比较<ul>
+<li>多路性：分时系统是为多个对象提供服务，实时系统是对多个对象进行控制</li>
+<li>独立性：信息采集和对象控制相互独立</li>
+<li>及时性：以控制对象所要求的截止时间来确定</li>
+<li>交互性：比分时系统差</li>
+<li>可靠性：实时系统要比分时系统可靠</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="操作系统四大基本特征"><a href="#操作系统四大基本特征" class="headerlink" title="操作系统四大基本特征"></a>操作系统四大基本特征</h2><ul>
+<li>并发</li>
+<li>虚拟</li>
+<li>共享</li>
+<li>异步  <h3 id="最基本特征：并发、共享"><a href="#最基本特征：并发、共享" class="headerlink" title="最基本特征：并发、共享"></a>最基本特征：并发、共享</h3></li>
+</ul>
+<hr>
+<h2 id="操作系统五大功能"><a href="#操作系统五大功能" class="headerlink" title="操作系统五大功能"></a>操作系统五大功能</h2><ul>
+<li>处理机管理——进程控制、进程同步、进程通信、调度</li>
+<li>存储器管理——内存分配、内存保护、地址映射、内存扩充</li>
+<li>设备管理——缓冲管理、设备分配、设备处理</li>
+<li>文件管理——文件存储空间管理、目录管理、文件读\写管理和保护</li>
+<li>用户接口——用户接口、程序接口</li>
+</ul>
+<blockquote>
+<p>一般来说，操作系统可以分为五大管理功能部分：</p>
+<ol>
+<li>设备管理：主要是负责内核与外围设备的数据交互，实质是对硬件设备的管理，包括对输入输出设备的分配，初始化，维护与回收等。例如管理音频输入输出。</li>
+<li>作业管理：这部分功能主要是负责人机交互，图形界面或者系统任务的管理。</li>
+<li>文件管理：这部分功能涉及文件的逻辑组织和物理组织，目录结构和管理等。从操作系统的角度来看，文件系统是系统对文件存储器的存储空间进行分配，维护和回收，同时负责文件的索引，共享和权限保护。而从用户的角度来说，文件系统是按照文件目录和文件名来进行存取的。</li>
+<li>进程管理：说明一个进程存在的唯一标志是pcb（进程控制块），负责维护进程的信息和状态。进程管理实质上是系统采取某些进程调度算法来使处理合理的分配给每个任务使用。</li>
+<li>存储管理：数据的存储方式和组织结构。</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="操作系统体系结构"><a href="#操作系统体系结构" class="headerlink" title="操作系统体系结构"></a>操作系统体系结构</h2><ul>
+<li>巨内核：大内核系统将操作系统的主要功能模块都作为一个紧密联系的整体运行在核心态，从而为应用提供高性能的系统服务。因为各管理模块之间共享信息，能有效利用相互之间的有效特性，所以具有无可比拟的性能优势。</li>
+<li>微内核：它将内核中最基本的功能（如进程管理等）保留在内核，而将那些不需要在核心态执行的功能移到用户态执行，从而降低了内核的设计复杂性。而那些移出内核的操作系统代码根据分层的原则被划分成若干服务程序，它们的执行相互独立，交互则都借助于微内核进行通信。</li>
+</ul>
+<hr>
+<h2 id="进程的基本概念"><a href="#进程的基本概念" class="headerlink" title="进程的基本概念"></a>进程的基本概念</h2><ol>
+<li><p>进程的定义：</p>
+<blockquote>
+<p>在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。</p>
+</blockquote>
+<blockquote>
+<p>进程是程序在某个数据集合上的一次运行活动</p>
+</blockquote>
+</li>
+<li><p>进程的特征：</p>
+<ul>
+<li>动态性：程序的一次执行过程，动态产生/消亡</li>
+<li>并发行：进程同其他进程一起向前推进</li>
+<li>独立性：进程是系统分配资源和调度CPU的单位</li>
+<li>异步性：进程按各自速度向前推进</li>
+</ul>
+</li>
+<li><p>进程的三种基本状态：就绪状态、执行状态、阻塞状态</p>
+</li>
+<li><p>进程存在的标志：进程控制块PCB（用于描述进程当前情况以及管理进程运行的全部信息）</p>
+</li>
+</ol>
+<hr>
+<h2 id="进程控制（创建、终止、阻塞与唤醒、挂起与激活）"><a href="#进程控制（创建、终止、阻塞与唤醒、挂起与激活）" class="headerlink" title="进程控制（创建、终止、阻塞与唤醒、挂起与激活）"></a>进程控制（创建、终止、阻塞与唤醒、挂起与激活）</h2><p>进程的控制：由OS的内核通过进程控制原语（创建、撤销、阻塞、唤醒）实现。<br>原语：由若干指令组成的具有特定功能的函数，具有原子性<br>OS内核优点：保护软件、提高运行效率。  </p>
+<hr>
+<h2 id="进程同步与互斥"><a href="#进程同步与互斥" class="headerlink" title="进程同步与互斥"></a>进程同步与互斥</h2><ol>
+<li>临界资源：每次仅允许一个进程访问的资源（打印机、变量、数组、缓冲区等）</li>
+<li>临界区： 每个进程中访问临界资源的那段代码<blockquote>
+<p>若能保证诸进程互斥地进入自己的临界区，便可实现诸进程对临界资源的互斥访问。为此，每个进程在进入临界区之前，应先对欲访问的临界资源进行检查，看它是否正被访问。如果此刻该临界资源未被访问，进程便可进入临界区对该资源进行访问，并设置它正被访问的标志；如果此刻该临界资源正被某进程访问，则本进程不能进入临界区。</p>
+</blockquote>
+</li>
+<li>进程同步关系<br>合作进程为了完成一个共同的任务，需要互相协调运行步伐<br>同步机制应遵循的规则：<ul>
+<li>空闲让进：当无进程处于临界区时，任何有权进程可进入临界区</li>
+<li>忙则等待：临界区忙，其他进程必须在临界区外等待</li>
+<li>有限等待：进程进入临界区的请求应在有限时间内得到满足</li>
+<li>让权等待：等待进程放弃CPU  </li>
+</ul>
+</li>
+<li>进程互斥关系<br>确保没有任何两个或以上的进程同时进行存取操作，互斥和临界资源共享相关（操作区域：临界区）</li>
+</ol>
+<hr>
+<h2 id="信号量机制"><a href="#信号量机制" class="headerlink" title="信号量机制"></a>信号量机制</h2><ol>
+<li>P操作：P(S,q)  <ol>
+<li>信号量S减1<br>如果S&lt;=0，则该进程继续执行；否则该进程置为等待状态，排入等待队列。</li>
+</ol>
+</li>
+<li>V操作：V(S,q)  <ol>
+<li>信号量S加1<br>如果S&gt;0，则该进程继续执行；否则释放队列中第一个等待信号量的进程。</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><p>基本类型：  </p>
+<ul>
+<li>共享存储器系统</li>
+<li>管道通信系统</li>
+<li>消息传递系统</li>
+<li>客户机-服务器系统</li>
+</ul>
+<hr>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p><a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_blank" rel="noopener">进程与线程的区别——阮一峰</a>  </p>
+<ol>
+<li>概念：线程是可由CPU直接运行的实体  </li>
+<li>进程与线程的比较：  <ol>
+<li>调度的基本单位：线程是调度和分派的基本单位  </li>
+<li>并发性：进程及其进程都可以并发执行  </li>
+<li>拥有资源：线程仅有能保证独立运行的资源  </li>
+<li>独立性：进程中不同线程的独立性要比不同进程的独立性低  </li>
+<li>系统开销：线程切换代价远低于进程  </li>
+<li>支持多处理机系统：可以将线程分配到多个处理机上使其并行执行  </li>
+</ol>
+</li>
+<li>实现方式  <ol>
+<li>内核支持线程KST</li>
+<li>用户级线程ULT</li>
+</ol>
+</li>
+</ol>
+<hr>
+<p>例题：<br>下列几种关于进程的叙述，（A）最不符合操作系统对进程的理解。<br>A、进程是在多进程并行环境中的完整的程序<br>B、进程可以由程序、数据和进程控制块描述<br>C、线程是一种特殊的进程<br>D、进程是程序在一个数据集合上运行的过程，是系统进行资源管理的一个独立单位。  </p>
+<p>系统创建进程的数目主要受到（C）的限制。<br>A、内存空间<br>B、终端数目<br>C、打开文件数<br>D、缓冲区大小  </p>
+<p>进程所请求的一次打印输出结束后，将使进程状态从（D）。<br>A、运行态变为就绪态<br>B、运行态变为等待态<br>C、就绪态变为运行态<br>D、等待态变为就绪态  </p>
+<hr>
+<h2 id="处理机调度"><a href="#处理机调度" class="headerlink" title="处理机调度"></a>处理机调度</h2><ol>
+<li>基本概念：处理及调度是对处理机资源进行分配  </li>
+<li>调度层次：<ul>
+<li>高级调度：作业调度</li>
+<li>中级调度：内存调度</li>
+<li>低级调度：进程调度    </li>
+</ul>
+</li>
+<li>处理机调度算法共同目标：  <ol>
+<li>资源利用率：提高系统资源利用率<br>$$CPU利用率=CPU有效工作时间/(CPU有效工作时间+CPU空闲等待时间)$$</li>
+<li>公平性：使诸进程都获得合理的CPU时间，避免饥饿</li>
+<li>平衡性：使系统CPU和各种外部设备都能经常处于忙碌状态</li>
+<li>策略强制执行：对所制定的策略必须准确执行  </li>
+</ol>
+</li>
+<li>调度算法  <ol>
+<li>先来先服务（FCFS）：按照作业进入系统的时间先后来挑选作业，先进先执行。<br>特点：容易实现，效率低；只考虑等候时间，没考虑运行时间，不利于短作业</li>
+<li>短作业优先调度（SJF）：选取运行时间最短的作业运行<br>特点：易实现，效率低；忽略了等待时间，来得早的长作业将会很长时间得不到调度，出现饥饿现象  </li>
+<li>高响应比优先调度（HRRN）：选择响应比最高的作业优先投入运行$$响应时间=等待时间+运行时间$$$$响应比=响应时间/运行时间=1+等待时间/运行时间$$</li>
+<li>优先数调度：<ul>
+<li>静态优先数确定：进程所需资源；程序运行时间；进程类型</li>
+<li>动态优先数确定：使用CPU超过一定时长；进行I/O操作后；进程等待一定时长时</li>
+</ul>
+</li>
+<li>循环轮转调度：所有就绪进程先进先出排成队列，然后以时间片为单位轮流使用CPU，运行完若没结束则排至队尾等待下一轮运行<br>优点： <ul>
+<li>公平性好</li>
+<li>交互性强（时间片太大会退化至FCFS；太小切换频繁，增加开销）  </li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="作业调度和进程调度"><a href="#作业调度和进程调度" class="headerlink" title="作业调度和进程调度"></a><a href="https://blog.csdn.net/qq_34525938/article/details/78138833" target="_blank" rel="noopener">作业调度和进程调度</a></h3><hr>
+<h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><ol>
+<li>产生的原因和必要条件：<ol>
+<li>原因：<ul>
+<li>竞争不可抢占性资源</li>
+<li>竞争可消耗资源</li>
+<li>进程运行推进顺序不当</li>
+</ul>
+</li>
+<li>必要条件：<ul>
+<li>互斥条件</li>
+<li>请求和保持条件</li>
+<li>不可抢占条件</li>
+<li>循环等待条件</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>预防方法：<ul>
+<li>破坏“请求和保持”条件：当一个进程在请求资源时，它不能持有不可抢占资源</li>
+<li>破坏“不可抢占”条件：当一个已经保持了某些不可被抢占资源的进程，提出新的资源请求而不能得到满足时，它必须释放已经保持的所有资源</li>
+<li>破坏“循环等待”条件：规定每个进程必须按序号递增顺序请求资源</li>
+</ul>
+</li>
+<li>避免死锁：<a href="https://blog.csdn.net/qq_33414271/article/details/80245715" target="_blank" rel="noopener">银行家算法</a></li>
+<li>死锁检测与解除：<br>解除：抢占资源；终止进程。</li>
+</ol>
+<hr>
+<h2 id="连续分配存储管理方式"><a href="#连续分配存储管理方式" class="headerlink" title="连续分配存储管理方式"></a>连续分配存储管理方式</h2><ol>
+<li>单一连续分配<ol>
+<li>将内存分为系统区（内存低端，分配给 OS 用）和用户区（内存高端，分配给用户用）</li>
+<li>最简单的一种存储管理方式，但只能用于单用户、单任务的 OS 中。</li>
+<li>主要特点：管理简单，只需少量的软件和硬件支持，便于用户了解和使用。但因内存中只装入一道作业运行，内存空间浪费大，各类资源的利用率也不高。</li>
+</ol>
+</li>
+<li>固定分区分配  <ol>
+<li>将内存空间划分为若干个固定大小的分区，除 OS 占一区外，其余的一个分区装入一道程序。分区的大小可以相等，也可以不等，但事先必须确定，在运行时不能改变。即分区大小及边界在运行时不能改变。 </li>
+<li>划分分区方法<ul>
+<li>分区大小相等：用于利用一台计算机去控制多个相同对象的场合。缺点是缺乏灵活性。</li>
+<li>分区大小不等：把内存区划分成含有多个较小的分区、适量的中等分区及少量的大分区。</li>
+</ul>
+</li>
+<li>主要特点：管理简单，但因作业的大小并不一定与某个分区大小相等，从而使一部分存储空间被浪费。所以主存的利用率不高。</li>
+</ol>
+</li>
+<li>动态分区分配<ol>
+<li>内存不是预先划分好的，作业装入时，根据作业的需求和内存空间的使用情况来决定是否分配。若有足够的空间，则按需要分割一部分分区给该进程；否则令其等待内存空间。</li>
+<li>最初整个用户区是空闲的，只有一个分区。然后随着用户程序的创建和撤销。分区的个数和大小位置开始变化。</li>
+<li>主要特点：管理简单，只需少量的软件和硬件支持，便于用户了解和使用，主存的利用率有所提高。</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="离散分配管理方式"><a href="#离散分配管理方式" class="headerlink" title="离散分配管理方式"></a>离散分配管理方式</h2><ol>
+<li>分页存储管理方式<ol>
+<li>用户程序的地址空间被划分成若干固定大小的区域，称为 “页”，相应地，内存空间分成若干个物理块，页和块的大小相等。可将用户程序的任一页放在内存的任一块中，实现了离散分配。</li>
+<li>页面和物理块<ul>
+<li>页面：将一个用户进程的地址空间（逻辑空间）划分成若干个大小相等的区域</li>
+<li>物理块：内存空间也分成若干个与页大小相等的区域</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>分段存储管理方式<ol>
+<li>段是按照程序的自然分界划分的长度可以动态改变的区域。</li>
+</ol>
+</li>
+<li>段页式存储管理方式<ol>
+<li>段页式存储组织是分段式和分页式结合的存储组织方法，这样可充分利用分段管理和分页管理的优点。</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="磁盘调度算法"><a href="#磁盘调度算法" class="headerlink" title="磁盘调度算法"></a>磁盘调度算法</h2><ol>
+<li>先来先服务算法（FCFS）：根据进程请求访问磁盘的先后顺序进行调度</li>
+<li>最短寻道时间优先算法（SSTF）：要求访问的磁道与当前磁头所在的磁道距离最近，该算法可以得到比较好的吞吐量，但却不能保证平均寻道时间最短。其缺点是对用户的服务请求的响应机会不是均等的，因而导致响应时间的变化幅度很大。</li>
+<li>扫描算法（SCAN）：优先考虑磁头的当前移动方向，并且考虑当前磁道与下一磁道之间的距离。</li>
+</ol>
+<hr>
+<h3 id="系统发生缺页率的时间间隔与进程获得的物理块数有关"><a href="#系统发生缺页率的时间间隔与进程获得的物理块数有关" class="headerlink" title="系统发生缺页率的时间间隔与进程获得的物理块数有关"></a>系统发生缺页率的时间间隔与进程获得的物理块数有关</h3><h3 id="工作集：在某段时间间隔里，进程实际索要访问页面的集合。"><a href="#工作集：在某段时间间隔里，进程实际索要访问页面的集合。" class="headerlink" title="工作集：在某段时间间隔里，进程实际索要访问页面的集合。"></a>工作集：在某段时间间隔里，进程实际索要访问页面的集合。</h3><h3 id="进程提交到进程完成的时间间隔为周转时间-也就是等待进入内存的时间。"><a href="#进程提交到进程完成的时间间隔为周转时间-也就是等待进入内存的时间。" class="headerlink" title="进程提交到进程完成的时间间隔为周转时间.也就是等待进入内存的时间。"></a>进程提交到进程完成的时间间隔为周转时间.也就是等待进入内存的时间。</h3><h3 id="进程创建的过程："><a href="#进程创建的过程：" class="headerlink" title="进程创建的过程："></a>进程创建的过程：</h3><pre><code>1. 申请空白PCB
+2. 为新进程分配资源
+3. 初始化PCB
+4. 将进程插入到就绪队列中</code></pre><h3 id="进程终止的过程："><a href="#进程终止的过程：" class="headerlink" title="进程终止的过程："></a>进程终止的过程：</h3><pre><code>1. 用检验标志检测PCB来读取进程状态
+2. 如果进程处于执行状态，终止其执行，将处理机分配给新进程
+3. 终止存在的子孙进程
+4. 回收该进程的所有资源，将其归还给父进程或操作系统
+5. 将该进程从队列中剔除</code></pre><h3 id="简述分页系统中，页面大小对系统性能的影响。"><a href="#简述分页系统中，页面大小对系统性能的影响。" class="headerlink" title="简述分页系统中，页面大小对系统性能的影响。"></a>简述分页系统中，页面大小对系统性能的影响。</h3><p>页面若太小，一方面虽然可使内存碎片减小，从而减少了内存碎片的总空间，有利于提高内存利用率，（1分）但也会使每个进程占用较多的页面，从而导致页表过长，占用大量内存；（1分）此外，还会降低页面换进换出的效率。（1分）页面若太大，虽然可减少页表长度，提高页面换进换出的速度，（1分）但又会使页内碎片增大。（1分）</p>
+<h3 id="操作系统的设备管理部分负责缓冲管理"><a href="#操作系统的设备管理部分负责缓冲管理" class="headerlink" title="操作系统的设备管理部分负责缓冲管理"></a>操作系统的设备管理部分负责缓冲管理</h3><h3 id="1-高级调度：作业调度"><a href="#1-高级调度：作业调度" class="headerlink" title="1. 高级调度：作业调度"></a>1. 高级调度：作业调度</h3><h3 id="2-中级调度：交换调度（内存）"><a href="#2-中级调度：交换调度（内存）" class="headerlink" title="2. 中级调度：交换调度（内存）"></a>2. 中级调度：交换调度（内存）</h3><h3 id="3-低级调度：进程调度"><a href="#3-低级调度：进程调度" class="headerlink" title="3. 低级调度：进程调度"></a>3. 低级调度：进程调度</h3><br>
+### 局部置换只置换本进程内的物理页面。一个进程占用的物理页面总数是限定的，当需要置换时，即总数已经用完，新进来一个页面，本进程就需要出去一个老的页面。全局置换指的是进程缺页时，可能置换的是内存中所有可换出的物理页面。即要换进的是 A 进程的页面，出去的可以是 B 进程的页面，因此分配给进程的页面总数是动态变化的。  
++ 局部置换：
+   1. 最优算法
+   2. 先进先出算法 (有 Belady 异常)
+   3. Least Recently Used(最近最久未使用算法)
+   4. 时钟算法
+   5. 最不常用算法 (Least Frequently Used) 算法
++ 全局置换：
+   1. 工作集算法
+   2. 缺页率算法
+### 进程调度与作业调度的不同点
+高级调度又称作业调度，作业就是用户程序及其所需的数据和命令的集合，作业管理就是对作业的执行情况进行系统管理的程序的集合。作业调度程序的主要功能是审查系统是否能满足用户作业的资源要求以及按照一定的算法来选取作业。  
+低级调度又称进程调度，其主要功能是根据一定的算法将cpu分派给就绪队列中的一个进程。进程调度是操作系统中最基本的一种调度，其调度策略的优劣直接影响整个系统的性能。  
+（1）作业调度是宏观调度，它决定了哪一个作业能进入主存。进程调度是微观调度，它决定各作业中的哪一个进程占有中央处理机。  
+（2）作业调度是选符合条件的收容态作业装入内存。进程调度是从就绪态进程中选一个占用处理机。  
+### 批处理操作系统提高了计算机的工作效率，但在作业执行时用户不能直接干预  
+### 在分时系统中，时间片一定，用户数越多，响应时间越长。
+### 实时操作系统追求的目标是快速响应。
+### 操作系统的五大功能是：处理机管理、存储器管理、设备管理、文件管理和操作系统与用户之间的接口。
+### 操作系统目前有五大类型：批处理操作系统,分时操作系统,实时操作系统,网络操作系统,分布式操作系统
+### 进程的静态实体由程序、数据和进程控制块三部分组成。 
+### 执行一次P操作意味着请求分配一个单位资源，因此S的值减1；当S<0时，表示已经没有可用资源，请求者必须等待别的进程释放该类资源，它才能运行下去。而执行一个v操作意味着释放一个单位资源，因此s的值加1；若s>0，表示有某些进程正在等待该资源，因此要唤醒一个等待状态的进程，使之运行下去。
+### 进程的同步和互斥反映了进程间直接制约和间接制约的关系。
+### 下列作业调度算法中，最短的作业平均周转时间是先来先服务法。
+### 作业调度算法提到的响应比是指作业周转时间与作业计算时间之比</0时，表示已经没有可用资源，请求者必须等待别的进程释放该类资源，它才能运行下去。而执行一个v操作意味着释放一个单位资源，因此s的值加1；若s>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>感谢你请我喝无糖可乐！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98.png" alt="GuoChen 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg" alt="GuoChen 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/04/laravel学习记录/" rel="prev" title="laravel学习记录">
+                laravel学习记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/logo.jpg" alt="GuoChen">
+            
+              <p class="site-author-name" itemprop="name">GuoChen</p>
+              <div class="site-description motion-element" itemprop="description">计算机专业在读</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/VinceMar" title="GitHub &rarr; https://github.com/VinceMar" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:chenguo0156@gmail.com" title="E-Mail &rarr; mailto:chenguo0156@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统的目标和作用"><span class="nav-number">1.</span> <span class="nav-text">操作系统的目标和作用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用："><span class="nav-number">1.1.</span> <span class="nav-text">作用：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统的发展过程"><span class="nav-number">2.</span> <span class="nav-text">操作系统的发展过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统四大基本特征"><span class="nav-number">3.</span> <span class="nav-text">操作系统四大基本特征</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最基本特征：并发、共享"><span class="nav-number">3.1.</span> <span class="nav-text">最基本特征：并发、共享</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统五大功能"><span class="nav-number">4.</span> <span class="nav-text">操作系统五大功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统体系结构"><span class="nav-number">5.</span> <span class="nav-text">操作系统体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程的基本概念"><span class="nav-number">6.</span> <span class="nav-text">进程的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程控制（创建、终止、阻塞与唤醒、挂起与激活）"><span class="nav-number">7.</span> <span class="nav-text">进程控制（创建、终止、阻塞与唤醒、挂起与激活）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程同步与互斥"><span class="nav-number">8.</span> <span class="nav-text">进程同步与互斥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号量机制"><span class="nav-number">9.</span> <span class="nav-text">信号量机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程通信"><span class="nav-number">10.</span> <span class="nav-text">进程通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程"><span class="nav-number">11.</span> <span class="nav-text">线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理机调度"><span class="nav-number">12.</span> <span class="nav-text">处理机调度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作业调度和进程调度"><span class="nav-number">12.1.</span> <span class="nav-text">作业调度和进程调度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#死锁"><span class="nav-number">13.</span> <span class="nav-text">死锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连续分配存储管理方式"><span class="nav-number">14.</span> <span class="nav-text">连续分配存储管理方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#离散分配管理方式"><span class="nav-number">15.</span> <span class="nav-text">离散分配管理方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#磁盘调度算法"><span class="nav-number">16.</span> <span class="nav-text">磁盘调度算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统发生缺页率的时间间隔与进程获得的物理块数有关"><span class="nav-number">16.1.</span> <span class="nav-text">系统发生缺页率的时间间隔与进程获得的物理块数有关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作集：在某段时间间隔里，进程实际索要访问页面的集合。"><span class="nav-number">16.2.</span> <span class="nav-text">工作集：在某段时间间隔里，进程实际索要访问页面的集合。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程提交到进程完成的时间间隔为周转时间-也就是等待进入内存的时间。"><span class="nav-number">16.3.</span> <span class="nav-text">进程提交到进程完成的时间间隔为周转时间.也就是等待进入内存的时间。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程创建的过程："><span class="nav-number">16.4.</span> <span class="nav-text">进程创建的过程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程终止的过程："><span class="nav-number">16.5.</span> <span class="nav-text">进程终止的过程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简述分页系统中，页面大小对系统性能的影响。"><span class="nav-number">16.6.</span> <span class="nav-text">简述分页系统中，页面大小对系统性能的影响。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统的设备管理部分负责缓冲管理"><span class="nav-number">16.7.</span> <span class="nav-text">操作系统的设备管理部分负责缓冲管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-高级调度：作业调度"><span class="nav-number">16.8.</span> <span class="nav-text">1. 高级调度：作业调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-中级调度：交换调度（内存）"><span class="nav-number">16.9.</span> <span class="nav-text">2. 中级调度：交换调度（内存）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-低级调度：进程调度"><span class="nav-number">16.10.</span> <span class="nav-text">3. 低级调度：进程调度</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GuoChen</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言&amp;emsp;&amp;emsp;本帖用于记录学习laravel时遇到的各种问题，不定期更新">
+<meta name="keywords" content="laravel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="laravel学习记录">
+<meta property="og:url" content="http://yoursite.com/2019/07/04/laravel学习记录/index.html">
+<meta property="og:site_name" content="GoCo - Blog">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;本帖用于记录学习laravel时遇到的各种问题，不定期更新">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-11T10:07:46.624Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="laravel学习记录">
+<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;本帖用于记录学习laravel时遇到的各种问题，不定期更新">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/04/laravel学习记录/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>laravel学习记录 | GoCo - Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GoCo - Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Keep Coding</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">14</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">4</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">13</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/04/laravel学习记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GuoChen">
+      <meta itemprop="description" content="计算机专业在读">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GoCo - Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">laravel学习记录
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-04 17:37:12" itemprop="dateCreated datePublished" datetime="2019-07-04T17:37:12+08:00">2019-07-04</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-11 18:07:46" itemprop="dateModified" datetime="2019-10-11T18:07:46+08:00">2019-10-11</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web开发/" itemprop="url" rel="index"><span itemprop="name">Web开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;本帖用于记录学习laravel时遇到的各种问题，不定期更新</p>
+<a id="more"></a>
+<h1 id="laravel工作过程"><a href="#laravel工作过程" class="headerlink" title="laravel工作过程"></a>laravel工作过程</h1><p>当用户在查看一个网页时，一个完整的访问过程如下：</p>
+<ol>
+<li>打开浏览器在地址栏输入 URL 并访问；</li>
+<li>路由将 URL 请求映射到指定控制器上；</li>
+<li>控制器收到请求，开始进行处理。如果视图需要动态数据进行渲染，则控制器会开始从模型中读取数据；</li>
+<li>数据读取完毕，将数据传送给视图进行渲染；</li>
+<li>视图渲染完成，在浏览器上呈现出完整页面；</li>
+</ol>
+<h1 id="配置相关"><a href="#配置相关" class="headerlink" title="配置相关"></a>配置相关</h1><h2 id="Vagrant-Homestead-下的-MySql-默认帐号和密码"><a href="#Vagrant-Homestead-下的-MySql-默认帐号和密码" class="headerlink" title="Vagrant + Homestead 下的 MySql 默认帐号和密码"></a>Vagrant + Homestead 下的 MySql 默认帐号和密码</h2><p>用户名：homestead<br>密码：secret<br>命令行登陆：$ mysql -uhomestead -psecret</p>
+<h2 id="运行项目出现500-Server-Error"><a href="#运行项目出现500-Server-Error" class="headerlink" title="运行项目出现500 Server Error"></a>运行项目出现<code>500 Server Error</code></h2><p>检查是否存在<code>.env</code>文件,若不存在则新建一个</p>
+<h2 id="出现No-application-encryption-key-has-been-specified"><a href="#出现No-application-encryption-key-has-been-specified" class="headerlink" title="出现No application encryption key has been specified."></a>出现<code>No application encryption key has been specified.</code></h2><p>若文件根目录下没有 .env<br>1、.env.example 改名使用命令 copy 修改为 .env<br>2、使用命令 php artisan key:generate  获取密码，自动保存到 .env<br>3、将密码复制到config/app.php 中的key里面<br>4、重新运行，OK。<br>如有.env 的情况，直接进行第二步。<br>两种情况皆无，请重新安装laravel。</p>
+<h2 id="Laravel-MIX-运行npm-run-watch-poll报错"><a href="#Laravel-MIX-运行npm-run-watch-poll报错" class="headerlink" title="Laravel-MIX 运行npm run watch-poll报错"></a>Laravel-MIX 运行<code>npm run watch-poll</code>报错</h2><p>执行以下命令：</p>
+<p>1.$ rm -rf node_modules</p>
+<p>2.$ yarn config set registry <a href="http://registry.cnpmjs.org" target="_blank" rel="noopener">http://registry.cnpmjs.org</a></p>
+<p>3.$ yarn install –no-bin-links<br>接下来打开 pakage.json 修改【去掉四处 cross-env 】</p>
+<h2 id="执行composer-dumpautoload报错"><a href="#执行composer-dumpautoload报错" class="headerlink" title="执行composer dumpautoload报错"></a>执行<code>composer dumpautoload</code>报错</h2><p>错误信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Composer\Autoload\ClassLoader::addClassMap() must be of the type array, integer given,......</span><br></pre></td></tr></table></figure>
+
+<p>解决：  </p>
+<ol>
+<li>进入项目 根目录：</li>
+<li>rm -rf vendor/composer/autoload_*  </li>
+<li>composer dumpautoload</li>
+</ol>
+<h1 id="laravel路由"><a href="#laravel路由" class="headerlink" title="laravel路由"></a>laravel路由</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'/'</span>, <span class="string">'StaticPagesController@home'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>参数一：URL<br>参数二：处理该URL的控制器动作  </p>
+<ul>
+<li>GET 常用于页面读取</li>
+<li>POST 常用于数据提交</li>
+<li>PATCH 常用于数据更新</li>
+<li>DELETE 常用于数据删除  </li>
+</ul>
+<p>指向 web 路由文件中定义的 POST、PUT 或 DELETE 路由的任何 HTML 表单都应该包含一个 CSRF 令牌字段，否则，这个请求将会被拒绝。  </p>
+<h2 id="重定向-视图路由"><a href="#重定向-视图路由" class="headerlink" title="重定向|视图路由"></a>重定向|视图路由</h2><p>Route::redirect 方法，可以通过第三个参数自定义返回码<br>Route::view 方法，第二个参数数组中的数据会被传递给视图</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::redirect(<span class="string">'/here'</span>, <span class="string">'/there'</span>, <span class="number">301</span>);</span><br><span class="line">----------</span><br><span class="line">Route::view(<span class="string">'/welcome'</span>, [<span class="string">'name'</span> =&gt; <span class="string">'Taylor'</span>]);</span><br></pre></td></tr></table></figure>
+
+<h2 id="路由参数"><a href="#路由参数" class="headerlink" title="路由参数"></a>路由参数</h2><p>路由的参数放在 <code>{ }</code> 中，参数名只能为字母且不能有 <code>-</code> 符号<br>路由参数会按顺序依次被注入到路由回调或者控制器中，而不受回调或者控制器的参数名称的影响。<br>参数后加 <code>?</code> 意为可选参数（需给出默认值）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//路由参数</span></span><br><span class="line">Route::get(<span class="string">'posts/&#123;post&#125;/comments/&#123;comment&#125;'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($postId, $commentId)</span> </span>&#123;</span><br><span class="line">    ···</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//可选参数</span></span><br><span class="line">Route::get(<span class="string">'user/&#123;name?&#125;'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($name = null)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $name;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="laravel控制器"><a href="#laravel控制器" class="headerlink" title="laravel控制器"></a>laravel控制器</h1><h2 id="资源控制器"><a href="#资源控制器" class="headerlink" title="资源控制器"></a>资源控制器</h2><p>补充资源控制器<br>如果你想在默认的资源路由中增加额外的路由，你应该在 <code>Route::resource</code> 之前定义这些路由。否则由 resource 方法定义的路由可能会无意中优先于你补充的路由：</p>
+<h3 id="store"><a href="#store" class="headerlink" title="store"></a>store</h3><p>store方法用于处理从表单传入的数据，其中可以做数据验证validate，确认密码的字段需要name为password_confirmation，这样就可以在validate的password的验证规则中填写confirm实现校验确认密码。  </p>
+<h4 id="校验规则"><a href="#校验规则" class="headerlink" title="校验规则"></a>校验规则</h4><table>
+<thead>
+<tr>
+<th>规则</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>confirmed</td>
+<td>验证的字段必须和 foo_confirmation 的字段值一致。例如，如果要验证的字段是 password，输入中必须存在匹配的 password_confirmation 字段。</td>
+<td></td>
+</tr>
+<tr>
+<td>size</td>
+<td>验证的字段必须具有与给定值匹配的大小。对于字符串来说，value 对应于字符数。对于数字来说，value 对应于给定的整数值。对于数组来说， size 对应的是数组的 count 值。对文件来说，size 对应的是文件大小（单位 kb ）。</td>
+<td></td>
+</tr>
+<tr>
+<td>max</td>
+<td>验证中的字段必须小于或等于 value。字符串、数字、数组或是文件大小的计算方式都用 size 方法进行评估。</td>
+<td></td>
+</tr>
+<tr>
+<td>min</td>
+<td>验证中的字段必须具有最小值。字符串、数字、数组或是文件大小的计算方式都用 size 方法进行评估。</td>
+<td></td>
+</tr>
+<tr>
+<td>unique</td>
+<td>unique:table,column,except,idColumn验证的字段在给定的数据库表中必须是唯一的。如果没有指定 column，将会使用字段本身的名称</td>
+<td>‘email’ =&gt; ‘unique:users,email_address’</td>
+</tr>
+<tr>
+<td>required</td>
+<td>验证的字段必须存在于输入数据中，而不是空。如果满足以下条件之一，则字段被视为「空」： 该值为 null. 该值为空字符串。 该值为空数组或空的 可数 对象。 该值为没有路径的上传文件。</td>
+<td></td>
+</tr>
+<tr>
+<td>email</td>
+<td>验证的字段必须符合 e-mail 地址格式。</td>
+<td></td>
+</tr>
+<tr>
+<td>sometimes</td>
+<td>只有在该字段存在时， 才对字段执行验证</td>
+<td></td>
+</tr>
+<tr>
+<td>nullable</td>
+<td>如果你不希望验证程序将 null 值视为无效的，那就将「可选」的请求字段标记为 nullable，也可以理解为有值时才验证。</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>若在某个属性第一次验证失败后停止运行验证规则，附加bail</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$this-&gt;validate($request, [</span><br><span class="line">    &apos;title&apos; =&gt; &apos;bail|required|unique:posts|max:255&apos;,</span><br><span class="line">    &apos;body&apos; =&gt; &apos;required&apos;,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<h4 id="验证错误提示消息"><a href="#验证错误提示消息" class="headerlink" title="验证错误提示消息"></a>验证错误提示消息</h4> <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">if</span> (count($errors) &gt; <span class="number">0</span>)</span><br><span class="line">    &lt;div class="alert alert-danger"&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            @<span class="keyword">foreach</span> ($errors-&gt;all() <span class="keyword">as</span> $error)</span><br><span class="line">                &lt;li&gt;&#123;&#123; $error &#125;&#125;&lt;/li&gt;</span><br><span class="line">            @<span class="keyword">endforeach</span></span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">@<span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
+
+<p>但是默认的提示消息是英文的，所以我们需要安装一个中文语言包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require caouecs/laravel-lang:~3.0</span><br></pre></td></tr></table></figure>
+
+<p>默认的错误提示消息为英文，所以使用时需要复制<code>vendor/caouecs/laravel-lang/src</code>下的语言包到<code>resource/lang</code>目录下，并修改<code>config/app.php</code>中<code>locale =&gt; &#39;zh-CN&#39;</code>；当然也可以自己写验证消息，只需要在validate中传入第三个参数即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$this-&gt;validate( $request, [</span><br><span class="line">            &apos;stunum&apos;      =&gt; &apos;required|unique:users&apos;,</span><br><span class="line">        ], [</span><br><span class="line">            &apos;stunum.required&apos;      =&gt; &apos;学号 不能为空&apos;,</span><br><span class="line">        ] );</span><br></pre></td></tr></table></figure>
+
+<h1 id="表单请求验证"><a href="#表单请求验证" class="headerlink" title="表单请求验证"></a>表单请求验证</h1><p>如果校验规则比较复杂，可以运行<code>php artisan make:request StoreBlogPost</code>生成一个表单请求类，然后在控制器方法中类型提示传入的请求<code>public function store(StoreBlogPost $request)</code><br>如果验证失败，就会生成一个让用户返回到先前的位置的重定向响应。<br>如果传入的请求是 AJAX，会向用户返回具有 422 状态代码和验证错误信息的 JSON 数据的 HTTP 响应。</p>
+<p>重写messages方法可以自定义错误消息  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public function messages()</span><br><span class="line">&#123;</span><br><span class="line">    return [</span><br><span class="line">        &apos;title.required&apos; =&gt; &apos;A title is required&apos;,</span><br><span class="line">        &apos;body.required&apos;  =&gt; &apos;A message is required&apos;,</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="laravel模型关联"><a href="#laravel模型关联" class="headerlink" title="laravel模型关联"></a>laravel模型关联</h1><h2 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h2><p>例如：<br>博客文章&amp;评论是一对多关系：一篇文章可以有多个评论，但一个评论只能属于一篇文章  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Post extends Model</span><br><span class="line">&#123;</span><br><span class="line">    /**</span><br><span class="line">     * 获得此博客文章的评论。</span><br><span class="line">     */</span><br><span class="line">    public function comments()</span><br><span class="line">    &#123;</span><br><span class="line">        return $this-&gt;hasMany(&apos;App\Comment&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Comment extends Model</span><br><span class="line">&#123;</span><br><span class="line">    /**</span><br><span class="line">     * 获得此评论所属的文章。</span><br><span class="line">     */</span><br><span class="line">    public function post()</span><br><span class="line">    &#123;</span><br><span class="line">        return $this-&gt;belongsTo(&apos;App\Post&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的例子中，Eloquent 会尝试用 <code>Comment</code> 模型的 <code>post_id</code> 与 Post 模型的 <code>id</code> 进行匹配。默认外键名是 Eloquent 依据关联名、并在关联名后加上 <code>_id</code> 后缀确定的。当然，如果 Comment 模型的外键不是 <code>post_id</code>，那么可以将自定义键名作为第二个参数传递给 belongsTo 方法</p>
+<h1 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h1><p>资源控制器绑定模型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan make:controller PhotoController --resource --model=Photo</span><br></pre></td></tr></table></figure>
+
+<h1 id="扩展包安装"><a href="#扩展包安装" class="headerlink" title="扩展包安装"></a>扩展包安装</h1><ol>
+<li><p>中文语言包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require &quot;overtrue/laravel-lang:~3.0&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require &quot;mews/captcha:~2.0&quot;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>运行以下命令生成配置文件 config/captcha.php：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan vendor:publish --provider=&apos;Mews\Captcha\CaptchaServiceProvider&apos;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>font-awesome<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add --dev @fortawesome/fontawesome-free</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>感谢你请我喝无糖可乐！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98.png" alt="GuoChen 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg" alt="GuoChen 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/laravel/" rel="tag"># laravel</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/02/操作系统复习/" rel="next" title="操作系统复习">
+                <i class="fa fa-chevron-left"></i> 操作系统复习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/05/计算机组成原理复习/" rel="prev" title="计算机组成原理复习">
+                计算机组成原理复习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/logo.jpg" alt="GuoChen">
+            
+              <p class="site-author-name" itemprop="name">GuoChen</p>
+              <div class="site-description motion-element" itemprop="description">计算机专业在读</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/VinceMar" title="GitHub &rarr; https://github.com/VinceMar" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:chenguo0156@gmail.com" title="E-Mail &rarr; mailto:chenguo0156@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#laravel工作过程"><span class="nav-number">2.</span> <span class="nav-text">laravel工作过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置相关"><span class="nav-number">3.</span> <span class="nav-text">配置相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vagrant-Homestead-下的-MySql-默认帐号和密码"><span class="nav-number">3.1.</span> <span class="nav-text">Vagrant + Homestead 下的 MySql 默认帐号和密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行项目出现500-Server-Error"><span class="nav-number">3.2.</span> <span class="nav-text">运行项目出现500 Server Error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#出现No-application-encryption-key-has-been-specified"><span class="nav-number">3.3.</span> <span class="nav-text">出现No application encryption key has been specified.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Laravel-MIX-运行npm-run-watch-poll报错"><span class="nav-number">3.4.</span> <span class="nav-text">Laravel-MIX 运行npm run watch-poll报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行composer-dumpautoload报错"><span class="nav-number">3.5.</span> <span class="nav-text">执行composer dumpautoload报错</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#laravel路由"><span class="nav-number">4.</span> <span class="nav-text">laravel路由</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#重定向-视图路由"><span class="nav-number">4.1.</span> <span class="nav-text">重定向|视图路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由参数"><span class="nav-number">4.2.</span> <span class="nav-text">路由参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#laravel控制器"><span class="nav-number">5.</span> <span class="nav-text">laravel控制器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#资源控制器"><span class="nav-number">5.1.</span> <span class="nav-text">资源控制器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#store"><span class="nav-number">5.1.1.</span> <span class="nav-text">store</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#校验规则"><span class="nav-number">5.1.1.1.</span> <span class="nav-text">校验规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证错误提示消息"><span class="nav-number">5.1.1.2.</span> <span class="nav-text">验证错误提示消息</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表单请求验证"><span class="nav-number">6.</span> <span class="nav-text">表单请求验证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#laravel模型关联"><span class="nav-number">7.</span> <span class="nav-text">laravel模型关联</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一对多"><span class="nav-number">7.1.</span> <span class="nav-text">一对多</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控制器"><span class="nav-number">8.</span> <span class="nav-text">控制器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#扩展包安装"><span class="nav-number">9.</span> <span class="nav-text">扩展包安装</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GuoChen</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

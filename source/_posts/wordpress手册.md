@@ -59,9 +59,6 @@ array(
     'before'=>'<h1>test</h1>',           //设置显示在a标签的内容
     'link_before'=>         //设置before内容的link
     'dephs'=>1,             //导航显示几个层级
-
-
-
 )
 ```
 

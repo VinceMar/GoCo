@@ -56,6 +56,9 @@ H5游戏的优点：
 + **Three.js:** 相信对于很多有关注 3D 游戏的开发者来说，Three.js 早已经耳熟能详了。实际上，Three.js 官方定位并不是游戏引擎，而是一个 JS 3D 库。Three.js 更倾向于展示型的视觉呈现，比较少直接拿 Three.js 来开发 H5 游戏。渲染环境上，Three.js 支持 WebGL 和 CSS3D 两种渲染模式。  
 
 <img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/20191025014914.gif"/>
+<img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/%E6%BC%94%E7%A4%BA3.gif"/>
+<img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/%E6%BC%94%E7%A4%BA4.gif"/>
+<img src="https://raw.githubusercontent.com/VinceMar/hexo_pic/master/img/%E6%BC%94%E7%A4%BA2.gif"/>
 
 ## 关于微信小游戏开发的引擎：
 &emsp;&emsp;许多开发者对小游戏对 Cocos、Egret、Laya、Unity 等游戏引擎的支持情况非常关心。但是小游戏是一个不同于浏览器的 JavaScript 运行环境，没有 BOM 和 DOM API。然而，基本上所有基于 HTML5 的游戏引擎都是依赖浏览器提供的 BOM 和 DOM API 的。所以如果要在小游戏中使用引擎，需要对引擎进行改造。  

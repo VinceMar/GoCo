@@ -1,8 +1,8 @@
 ---
-title: laravel学习记录
+title: Laravel学习记录
 date: 2019-07-04 17:37:12
 tags: 
-- laravel
+- Laravel
 categories: 
 - Web开发
 ---

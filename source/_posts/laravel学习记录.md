@@ -21,8 +21,8 @@ categories:
 
 # 配置相关
 ## Vagrant + Homestead 下的 MySql 默认帐号和密码
-用户名：homestead 
-密码：secret 
+用户名：homestead  
+密码：secret  
 命令行登陆：$ mysql -uhomestead -psecret
 ## 运行项目出现`500 Server Error`
 检查是否存在`.env`文件,若不存在则新建一个
@@ -163,6 +163,16 @@ public function messages()
 }
 ```
 
+# 加密
+bcrypt每次获得的结果不同：
+```php
+$hash1 = bcrypt('secret')
+$hash2 = bcrypt('secret')
+
+Hash::check('secret', $hash1)
+Hash::check('secret', $hash2)
+```
+
 # laravel模型关联
 
 ## 一对多
@@ -198,11 +208,9 @@ class Comment extends Model
 # 控制器
 
 资源控制器绑定模型：
-```
+```shell
 php artisan make:controller PhotoController --resource --model=Photo
 ```
-
-
 
 # 扩展包安装
 1. 中文语言包
@@ -212,12 +220,13 @@ composer require "overtrue/laravel-lang:~3.0"
 2. 验证码
 ```
 composer require "mews/captcha:~2.0"
-```
+```  
 运行以下命令生成配置文件 config/captcha.php：
+```shell
+php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider'
 ```
-php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider' 
-```
+
 3. font-awesome
-```
+```shell
 yarn add --dev @fortawesome/fontawesome-free
 ```

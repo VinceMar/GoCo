@@ -30,6 +30,11 @@ chmod -R 777 /usr/local/bin/composer
 ```
 ## 部署项目
 这边使用git部署项目至Apache项目目录，在clone完毕后进入项目目录：
++ composer安装
+```shell
+composer install
+```
+若出现`Your requirements could not be resolved to an installable set of packages`，则运行`composer install --ignore-platform-reqs`或`composer update --ignore-platform-reqs`来忽略版本
 + 生成.env文件
 ```shell
 cp .env.example .env

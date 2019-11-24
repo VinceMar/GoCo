@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="GoCo - Blog">
 <meta property="og:description" content="前言在阿里云CentOS 7服务器上部署Laravel 5.8项目。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-28T13:29:00.699Z">
+<meta property="og:updated_time" content="2019-11-24T13:29:14.594Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel项目部署（基于CentOS7）">
 <meta name="twitter:description" content="前言在阿里云CentOS 7服务器上部署Laravel 5.8项目。">
@@ -264,7 +264,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">16</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">17</span></a>
 
   </li>
         
@@ -300,7 +300,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">15</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">16</span></a>
 
   </li>
 
@@ -395,13 +395,23 @@
                 
               
 
-              <time title="创建时间：2019-10-28 20:45:45 / 修改时间：21:29:00" itemprop="dateCreated datePublished" datetime="2019-10-28T20:45:45+08:00">2019-10-28</time>
+              <time title="创建时间：2019-10-28 20:45:45" itemprop="dateCreated datePublished" datetime="2019-10-28T20:45:45+08:00">2019-10-28</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-11-24 21:29:14" itemprop="dateModified" datetime="2019-11-24T21:29:14+08:00">2019-11-24</time>
+              </span>
             
           
 
@@ -484,6 +494,12 @@
 </li>
 </ul>
 <h2 id="部署项目"><a href="#部署项目" class="headerlink" title="部署项目"></a>部署项目</h2><p>这边使用git部署项目至Apache项目目录，在clone完毕后进入项目目录：</p>
+<ul>
+<li>composer安装<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer install</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>若出现<code>Your requirements could not be resolved to an installable set of packages</code>，则运行<code>composer install --ignore-platform-reqs</code>或<code>composer update --ignore-platform-reqs</code>来忽略版本</p>
 <ul>
 <li><p>生成.env文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp .env.example .env</span><br></pre></td></tr></table></figure>
@@ -617,6 +633,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/11/24/【好文转载】Laravel-学习笔记-神奇的服务容器/" rel="prev" title="【好文转载】Laravel 学习笔记  神奇的服务容器">
+                【好文转载】Laravel 学习笔记  神奇的服务容器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -686,7 +706,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -762,7 +782,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
